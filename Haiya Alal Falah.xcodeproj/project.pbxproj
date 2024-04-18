@@ -1,0 +1,688 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 56;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		B169A1522BB134090068CB65 /* AthanTimeTable.swift in Sources */ = {isa = PBXBuildFile; fileRef = B169A1512BB134090068CB65 /* AthanTimeTable.swift */; };
+		B169A1542BB138450068CB65 /* LocationNotFoundView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B169A1532BB138450068CB65 /* LocationNotFoundView.swift */; };
+		B169A1572BB13ECE0068CB65 /* AthanView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B169A1562BB13ECE0068CB65 /* AthanView.swift */; };
+		B169A1592BB150390068CB65 /* AthanHome.swift in Sources */ = {isa = PBXBuildFile; fileRef = B169A1582BB150390068CB65 /* AthanHome.swift */; };
+		B17C09CC2BA54FF700F8163D /* Haiya_Alal_FalahApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = B17C09CB2BA54FF700F8163D /* Haiya_Alal_FalahApp.swift */; };
+		B17C09CE2BA54FF700F8163D /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B17C09CD2BA54FF700F8163D /* ContentView.swift */; };
+		B17C09D02BA54FF800F8163D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B17C09CF2BA54FF800F8163D /* Assets.xcassets */; };
+		B17C09D32BA54FF800F8163D /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B17C09D22BA54FF800F8163D /* Preview Assets.xcassets */; };
+		B17C09DD2BA54FF800F8163D /* Haiya_Alal_FalahTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B17C09DC2BA54FF800F8163D /* Haiya_Alal_FalahTests.swift */; };
+		B17C09E72BA54FF800F8163D /* Haiya_Alal_FalahUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B17C09E62BA54FF800F8163D /* Haiya_Alal_FalahUITests.swift */; };
+		B17C09E92BA54FF800F8163D /* Haiya_Alal_FalahUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B17C09E82BA54FF800F8163D /* Haiya_Alal_FalahUITestsLaunchTests.swift */; };
+		B17C09F72BA550D800F8163D /* Adhan in Frameworks */ = {isa = PBXBuildFile; productRef = B17C09F62BA550D800F8163D /* Adhan */; };
+		B17C09FA2BA5511100F8163D /* PrayerTimesAll.swift in Sources */ = {isa = PBXBuildFile; fileRef = B17C09F92BA5511100F8163D /* PrayerTimesAll.swift */; };
+		B17C09FD2BA56B9300F8163D /* TabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = B17C09FC2BA56B9300F8163D /* TabBar.swift */; };
+		B17C0A022BA56C2B00F8163D /* PrayerTimeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B17C0A012BA56C2B00F8163D /* PrayerTimeView.swift */; };
+		B17C0A042BA57F3500F8163D /* PrayerTimeTableItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = B17C0A032BA57F3500F8163D /* PrayerTimeTableItem.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		B17C09D92BA54FF800F8163D /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = B17C09C02BA54FF700F8163D /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = B17C09C72BA54FF700F8163D;
+			remoteInfo = "Haiya Alal Falah";
+		};
+		B17C09E32BA54FF800F8163D /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = B17C09C02BA54FF700F8163D /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = B17C09C72BA54FF700F8163D;
+			remoteInfo = "Haiya Alal Falah";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		B169A1512BB134090068CB65 /* AthanTimeTable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AthanTimeTable.swift; sourceTree = "<group>"; };
+		B169A1532BB138450068CB65 /* LocationNotFoundView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationNotFoundView.swift; sourceTree = "<group>"; };
+		B169A1562BB13ECE0068CB65 /* AthanView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AthanView.swift; sourceTree = "<group>"; };
+		B169A1582BB150390068CB65 /* AthanHome.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AthanHome.swift; sourceTree = "<group>"; };
+		B17C09C82BA54FF700F8163D /* Haiya Alal Falah.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Haiya Alal Falah.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		B17C09CB2BA54FF700F8163D /* Haiya_Alal_FalahApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Haiya_Alal_FalahApp.swift; sourceTree = "<group>"; };
+		B17C09CD2BA54FF700F8163D /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		B17C09CF2BA54FF800F8163D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		B17C09D22BA54FF800F8163D /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		B17C09D82BA54FF800F8163D /* Haiya Alal FalahTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Haiya Alal FalahTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		B17C09DC2BA54FF800F8163D /* Haiya_Alal_FalahTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Haiya_Alal_FalahTests.swift; sourceTree = "<group>"; };
+		B17C09E22BA54FF800F8163D /* Haiya Alal FalahUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Haiya Alal FalahUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		B17C09E62BA54FF800F8163D /* Haiya_Alal_FalahUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Haiya_Alal_FalahUITests.swift; sourceTree = "<group>"; };
+		B17C09E82BA54FF800F8163D /* Haiya_Alal_FalahUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Haiya_Alal_FalahUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		B17C09F92BA5511100F8163D /* PrayerTimesAll.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrayerTimesAll.swift; sourceTree = "<group>"; };
+		B17C09FC2BA56B9300F8163D /* TabBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBar.swift; sourceTree = "<group>"; };
+		B17C0A012BA56C2B00F8163D /* PrayerTimeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrayerTimeView.swift; sourceTree = "<group>"; };
+		B17C0A032BA57F3500F8163D /* PrayerTimeTableItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrayerTimeTableItem.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		B17C09C52BA54FF700F8163D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B17C09F72BA550D800F8163D /* Adhan in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B17C09D52BA54FF800F8163D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B17C09DF2BA54FF800F8163D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		B169A1552BB13EAD0068CB65 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				B169A1562BB13ECE0068CB65 /* AthanView.swift */,
+				B169A1582BB150390068CB65 /* AthanHome.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		B17C09BF2BA54FF700F8163D = {
+			isa = PBXGroup;
+			children = (
+				B17C09CA2BA54FF700F8163D /* Haiya Alal Falah */,
+				B17C09DB2BA54FF800F8163D /* Haiya Alal FalahTests */,
+				B17C09E52BA54FF800F8163D /* Haiya Alal FalahUITests */,
+				B17C09C92BA54FF700F8163D /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		B17C09C92BA54FF700F8163D /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				B17C09C82BA54FF700F8163D /* Haiya Alal Falah.app */,
+				B17C09D82BA54FF800F8163D /* Haiya Alal FalahTests.xctest */,
+				B17C09E22BA54FF800F8163D /* Haiya Alal FalahUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		B17C09CA2BA54FF700F8163D /* Haiya Alal Falah */ = {
+			isa = PBXGroup;
+			children = (
+				B169A1552BB13EAD0068CB65 /* Views */,
+				B17C09FE2BA56BCF00F8163D /* AdhanView */,
+				B17C09FB2BA56AE300F8163D /* Components */,
+				B17C09F82BA550EF00F8163D /* Model */,
+				B17C09CB2BA54FF700F8163D /* Haiya_Alal_FalahApp.swift */,
+				B17C09CD2BA54FF700F8163D /* ContentView.swift */,
+				B17C09CF2BA54FF800F8163D /* Assets.xcassets */,
+				B17C09D12BA54FF800F8163D /* Preview Content */,
+			);
+			path = "Haiya Alal Falah";
+			sourceTree = "<group>";
+		};
+		B17C09D12BA54FF800F8163D /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				B17C09D22BA54FF800F8163D /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		B17C09DB2BA54FF800F8163D /* Haiya Alal FalahTests */ = {
+			isa = PBXGroup;
+			children = (
+				B17C09DC2BA54FF800F8163D /* Haiya_Alal_FalahTests.swift */,
+			);
+			path = "Haiya Alal FalahTests";
+			sourceTree = "<group>";
+		};
+		B17C09E52BA54FF800F8163D /* Haiya Alal FalahUITests */ = {
+			isa = PBXGroup;
+			children = (
+				B17C09E62BA54FF800F8163D /* Haiya_Alal_FalahUITests.swift */,
+				B17C09E82BA54FF800F8163D /* Haiya_Alal_FalahUITestsLaunchTests.swift */,
+			);
+			path = "Haiya Alal FalahUITests";
+			sourceTree = "<group>";
+		};
+		B17C09F82BA550EF00F8163D /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				B17C09F92BA5511100F8163D /* PrayerTimesAll.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		B17C09FB2BA56AE300F8163D /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				B17C09FC2BA56B9300F8163D /* TabBar.swift */,
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
+		B17C09FE2BA56BCF00F8163D /* AdhanView */ = {
+			isa = PBXGroup;
+			children = (
+				B17C0A012BA56C2B00F8163D /* PrayerTimeView.swift */,
+				B17C0A032BA57F3500F8163D /* PrayerTimeTableItem.swift */,
+				B169A1512BB134090068CB65 /* AthanTimeTable.swift */,
+				B169A1532BB138450068CB65 /* LocationNotFoundView.swift */,
+			);
+			path = AdhanView;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		B17C09C72BA54FF700F8163D /* Haiya Alal Falah */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = B17C09EC2BA54FF800F8163D /* Build configuration list for PBXNativeTarget "Haiya Alal Falah" */;
+			buildPhases = (
+				B17C09C42BA54FF700F8163D /* Sources */,
+				B17C09C52BA54FF700F8163D /* Frameworks */,
+				B17C09C62BA54FF700F8163D /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Haiya Alal Falah";
+			packageProductDependencies = (
+				B17C09F62BA550D800F8163D /* Adhan */,
+			);
+			productName = "Haiya Alal Falah";
+			productReference = B17C09C82BA54FF700F8163D /* Haiya Alal Falah.app */;
+			productType = "com.apple.product-type.application";
+		};
+		B17C09D72BA54FF800F8163D /* Haiya Alal FalahTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = B17C09EF2BA54FF800F8163D /* Build configuration list for PBXNativeTarget "Haiya Alal FalahTests" */;
+			buildPhases = (
+				B17C09D42BA54FF800F8163D /* Sources */,
+				B17C09D52BA54FF800F8163D /* Frameworks */,
+				B17C09D62BA54FF800F8163D /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				B17C09DA2BA54FF800F8163D /* PBXTargetDependency */,
+			);
+			name = "Haiya Alal FalahTests";
+			productName = "Haiya Alal FalahTests";
+			productReference = B17C09D82BA54FF800F8163D /* Haiya Alal FalahTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		B17C09E12BA54FF800F8163D /* Haiya Alal FalahUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = B17C09F22BA54FF800F8163D /* Build configuration list for PBXNativeTarget "Haiya Alal FalahUITests" */;
+			buildPhases = (
+				B17C09DE2BA54FF800F8163D /* Sources */,
+				B17C09DF2BA54FF800F8163D /* Frameworks */,
+				B17C09E02BA54FF800F8163D /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				B17C09E42BA54FF800F8163D /* PBXTargetDependency */,
+			);
+			name = "Haiya Alal FalahUITests";
+			productName = "Haiya Alal FalahUITests";
+			productReference = B17C09E22BA54FF800F8163D /* Haiya Alal FalahUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		B17C09C02BA54FF700F8163D /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1520;
+				LastUpgradeCheck = 1520;
+				TargetAttributes = {
+					B17C09C72BA54FF700F8163D = {
+						CreatedOnToolsVersion = 15.2;
+					};
+					B17C09D72BA54FF800F8163D = {
+						CreatedOnToolsVersion = 15.2;
+						TestTargetID = B17C09C72BA54FF700F8163D;
+					};
+					B17C09E12BA54FF800F8163D = {
+						CreatedOnToolsVersion = 15.2;
+						TestTargetID = B17C09C72BA54FF700F8163D;
+					};
+				};
+			};
+			buildConfigurationList = B17C09C32BA54FF700F8163D /* Build configuration list for PBXProject "Haiya Alal Falah" */;
+			compatibilityVersion = "Xcode 14.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = B17C09BF2BA54FF700F8163D;
+			packageReferences = (
+				B17C09F52BA550D800F8163D /* XCRemoteSwiftPackageReference "adhan-swift" */,
+			);
+			productRefGroup = B17C09C92BA54FF700F8163D /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				B17C09C72BA54FF700F8163D /* Haiya Alal Falah */,
+				B17C09D72BA54FF800F8163D /* Haiya Alal FalahTests */,
+				B17C09E12BA54FF800F8163D /* Haiya Alal FalahUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		B17C09C62BA54FF700F8163D /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B17C09D32BA54FF800F8163D /* Preview Assets.xcassets in Resources */,
+				B17C09D02BA54FF800F8163D /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B17C09D62BA54FF800F8163D /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B17C09E02BA54FF800F8163D /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		B17C09C42BA54FF700F8163D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B169A1522BB134090068CB65 /* AthanTimeTable.swift in Sources */,
+				B17C09CE2BA54FF700F8163D /* ContentView.swift in Sources */,
+				B17C0A042BA57F3500F8163D /* PrayerTimeTableItem.swift in Sources */,
+				B17C09FA2BA5511100F8163D /* PrayerTimesAll.swift in Sources */,
+				B17C09CC2BA54FF700F8163D /* Haiya_Alal_FalahApp.swift in Sources */,
+				B17C0A022BA56C2B00F8163D /* PrayerTimeView.swift in Sources */,
+				B169A1542BB138450068CB65 /* LocationNotFoundView.swift in Sources */,
+				B17C09FD2BA56B9300F8163D /* TabBar.swift in Sources */,
+				B169A1572BB13ECE0068CB65 /* AthanView.swift in Sources */,
+				B169A1592BB150390068CB65 /* AthanHome.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B17C09D42BA54FF800F8163D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B17C09DD2BA54FF800F8163D /* Haiya_Alal_FalahTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B17C09DE2BA54FF800F8163D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B17C09E92BA54FF800F8163D /* Haiya_Alal_FalahUITestsLaunchTests.swift in Sources */,
+				B17C09E72BA54FF800F8163D /* Haiya_Alal_FalahUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		B17C09DA2BA54FF800F8163D /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = B17C09C72BA54FF700F8163D /* Haiya Alal Falah */;
+			targetProxy = B17C09D92BA54FF800F8163D /* PBXContainerItemProxy */;
+		};
+		B17C09E42BA54FF800F8163D /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = B17C09C72BA54FF700F8163D /* Haiya Alal Falah */;
+			targetProxy = B17C09E32BA54FF800F8163D /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		B17C09EA2BA54FF800F8163D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.2;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		B17C09EB2BA54FF800F8163D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.2;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		B17C09ED2BA54FF800F8163D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"Haiya Alal Falah/Preview Content\"";
+				DEVELOPMENT_TEAM = VBK8LB6FN4;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "to get athan time based on location, please allow";
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.5;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "net.tazwar.Haiya-Alal-Falah";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		B17C09EE2BA54FF800F8163D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"Haiya Alal Falah/Preview Content\"";
+				DEVELOPMENT_TEAM = VBK8LB6FN4;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "to get athan time based on location, please allow";
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.5;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "net.tazwar.Haiya-Alal-Falah";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		B17C09F02BA54FF800F8163D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = BRB9949R68;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.2;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "net.tazwar.Haiya-Alal-FalahTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Haiya Alal Falah.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Haiya Alal Falah";
+			};
+			name = Debug;
+		};
+		B17C09F12BA54FF800F8163D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = BRB9949R68;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.2;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "net.tazwar.Haiya-Alal-FalahTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Haiya Alal Falah.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Haiya Alal Falah";
+			};
+			name = Release;
+		};
+		B17C09F32BA54FF800F8163D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = BRB9949R68;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "net.tazwar.Haiya-Alal-FalahUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = "Haiya Alal Falah";
+			};
+			name = Debug;
+		};
+		B17C09F42BA54FF800F8163D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = BRB9949R68;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "net.tazwar.Haiya-Alal-FalahUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = "Haiya Alal Falah";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		B17C09C32BA54FF700F8163D /* Build configuration list for PBXProject "Haiya Alal Falah" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B17C09EA2BA54FF800F8163D /* Debug */,
+				B17C09EB2BA54FF800F8163D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		B17C09EC2BA54FF800F8163D /* Build configuration list for PBXNativeTarget "Haiya Alal Falah" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B17C09ED2BA54FF800F8163D /* Debug */,
+				B17C09EE2BA54FF800F8163D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		B17C09EF2BA54FF800F8163D /* Build configuration list for PBXNativeTarget "Haiya Alal FalahTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B17C09F02BA54FF800F8163D /* Debug */,
+				B17C09F12BA54FF800F8163D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		B17C09F22BA54FF800F8163D /* Build configuration list for PBXNativeTarget "Haiya Alal FalahUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B17C09F32BA54FF800F8163D /* Debug */,
+				B17C09F42BA54FF800F8163D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		B17C09F52BA550D800F8163D /* XCRemoteSwiftPackageReference "adhan-swift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/batoulapps/adhan-swift";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.4.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		B17C09F62BA550D800F8163D /* Adhan */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = B17C09F52BA550D800F8163D /* XCRemoteSwiftPackageReference "adhan-swift" */;
+			productName = Adhan;
+		};
+/* End XCSwiftPackageProductDependency section */
+	};
+	rootObject = B17C09C02BA54FF700F8163D /* Project object */;
+}
