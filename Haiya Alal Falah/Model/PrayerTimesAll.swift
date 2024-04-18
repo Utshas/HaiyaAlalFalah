@@ -14,6 +14,7 @@ class PrayerTimesAll:NSObject, ObservableObject, CLLocationManagerDelegate {
     private let locationManager = CLLocationManager()
     private let geocoder = CLGeocoder()
     @Published var prayers: PrayerTimes?
+    @Published var allPrayers: [PrayerTimes?] = []
     @Published var city: String?
     @Published var error: Error?
     var notificationSettings: [String: Bool] = [
@@ -26,7 +27,7 @@ class PrayerTimesAll:NSObject, ObservableObject, CLLocationManagerDelegate {
     
     
     func scheduleNotification(for prayerTime:Date, with prayerName: String){
-        print("setting notification for \(prayerName)")
+        print("setting notification for \(prayerName) on \(prayerTime)")
         let content = UNMutableNotificationContent()
         content.title = prayerName
         content.body = "It's time for \(prayerName)"
@@ -43,25 +44,32 @@ class PrayerTimesAll:NSObject, ObservableObject, CLLocationManagerDelegate {
     }
     
     func schedulePrayerNotification(){
-        guard let prayers = prayers else {
-            print("Cannot schedule notifications because prayer times not available yet!")
+        if allPrayers.isEmpty {
+            print("Cannot schedule notifications because prayer times are not available yet!")
             return
         }
-        
-        let prayerTimes = [
-            ("Fazr", prayers.fajr),
-            ("Zuhr", prayers.dhuhr),
-            ("Asr", prayers.asr),
-            ("Maghrib", prayers.maghrib),
-            ("Isha", prayers.isha)
-        ]
-        
         UNUserNotificationCenter.current().removeAllPendingNotificationRequests()
-        for (prayerName, prayerTime) in prayerTimes {
-            if notificationSettings[prayerName] == true{
-                scheduleNotification(for: prayerTime, with: prayerName)
+        for i in 0..<allPrayers.count{
+            let prayerTimes = [
+                ("Fazr", allPrayers[i]?.fajr),
+                ("Zuhr", allPrayers[i]?.dhuhr),
+                ("Asr", allPrayers[i]?.asr),
+                ("Maghrib", allPrayers[i]?.maghrib),
+                ("Isha", allPrayers[i]?.isha)
+            ]
+            for (prayerName, prayerTime) in prayerTimes {
+                if notificationSettings[prayerName] == true{
+                    if let prayerTime = prayerTime as Date?{
+                        scheduleNotification(for: prayerTime, with: prayerName)
+                    }
+                    
+                }
             }
         }
+        
+        
+        
+        
     }
     
     func updateNotificationSettings(for prayerName: String, sendNotification: Bool){
@@ -101,12 +109,21 @@ class PrayerTimesAll:NSObject, ObservableObject, CLLocationManagerDelegate {
         }
         let coordinates = Coordinates(latitude: location.coordinate.latitude, longitude: location.coordinate.longitude)
         let params = CalculationMethod.muslimWorldLeague.params
-        
         let components = Calendar.current.dateComponents([.year, .month, .day], from: location.timestamp)
-        let prayerTimes = PrayerTimes(coordinates: coordinates, date: components, calculationParameters: params)
+        var prayerTimes = [PrayerTimes(coordinates: coordinates, date: components, calculationParameters: params)]
+        var currentPrayers = PrayerTimes(coordinates: coordinates, date: components, calculationParameters: params)
+        if let nextDayDate = Calendar.current.date(byAdding: .day, value: 1, to: location.timestamp){
+            let componentsNext = Calendar.current.dateComponents([.year, .month, .day], from: nextDayDate)
+            prayerTimes.append(PrayerTimes(coordinates: coordinates, date: componentsNext, calculationParameters: params))
+        }
+        if let plus2Date = Calendar.current.date(byAdding: .day, value: 2, to: location.timestamp){
+            let componentsPlus2 = Calendar.current.dateComponents([.year, .month, .day], from: plus2Date)
+            prayerTimes.append(PrayerTimes(coordinates: coordinates, date: componentsPlus2, calculationParameters: params))
+        }
         
         DispatchQueue.main.async {
-            self.prayers = prayerTimes
+            self.prayers = currentPrayers
+            self.allPrayers = prayerTimes
             self.error = nil
             self.schedulePrayerNotification()
         }
