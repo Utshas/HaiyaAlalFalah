@@ -19,10 +19,13 @@ struct PrayerTimeView: View {
             VStack(spacing: 20){
                 VStack{
                     HStack{
-                        Text("Blessed").font(.title2)
+                        Text("Haiya").font(.title2)
                             .fontWeight(.bold)
                             .foregroundStyle(.yellow)
-                        Text("Days").font(.title2)
+                        Text("Alal").font(.title2)
+                            .fontWeight(.bold)
+                            .foregroundStyle(.orange)
+                        Text("Falah").font(.title2)
                             .fontWeight(.bold)
                             .foregroundStyle(.green)
                     }

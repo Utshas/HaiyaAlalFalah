@@ -23,6 +23,8 @@
 		B17C09FD2BA56B9300F8163D /* TabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = B17C09FC2BA56B9300F8163D /* TabBar.swift */; };
 		B17C0A022BA56C2B00F8163D /* PrayerTimeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B17C0A012BA56C2B00F8163D /* PrayerTimeView.swift */; };
 		B17C0A042BA57F3500F8163D /* PrayerTimeTableItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = B17C0A032BA57F3500F8163D /* PrayerTimeTableItem.swift */; };
+		B19DB7282BDE910500347457 /* LocationManagerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B19DB7272BDE910500347457 /* LocationManagerDelegate.swift */; };
+		B1F615B52BD516AF00BDE65F /* CompassView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1F615B42BD516AF00BDE65F /* CompassView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -61,6 +63,8 @@
 		B17C09FC2BA56B9300F8163D /* TabBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBar.swift; sourceTree = "<group>"; };
 		B17C0A012BA56C2B00F8163D /* PrayerTimeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrayerTimeView.swift; sourceTree = "<group>"; };
 		B17C0A032BA57F3500F8163D /* PrayerTimeTableItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrayerTimeTableItem.swift; sourceTree = "<group>"; };
+		B19DB7272BDE910500347457 /* LocationManagerDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManagerDelegate.swift; sourceTree = "<group>"; };
+		B1F615B42BD516AF00BDE65F /* CompassView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompassView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -94,6 +98,7 @@
 			children = (
 				B169A1562BB13ECE0068CB65 /* AthanView.swift */,
 				B169A1582BB150390068CB65 /* AthanHome.swift */,
+				B1F615B42BD516AF00BDE65F /* CompassView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -129,6 +134,7 @@
 				B17C09CD2BA54FF700F8163D /* ContentView.swift */,
 				B17C09CF2BA54FF800F8163D /* Assets.xcassets */,
 				B17C09D12BA54FF800F8163D /* Preview Content */,
+				B19DB7272BDE910500347457 /* LocationManagerDelegate.swift */,
 			);
 			path = "Haiya Alal Falah";
 			sourceTree = "<group>";
@@ -325,12 +331,14 @@
 				B17C09CE2BA54FF700F8163D /* ContentView.swift in Sources */,
 				B17C0A042BA57F3500F8163D /* PrayerTimeTableItem.swift in Sources */,
 				B17C09FA2BA5511100F8163D /* PrayerTimesAll.swift in Sources */,
+				B1F615B52BD516AF00BDE65F /* CompassView.swift in Sources */,
 				B17C09CC2BA54FF700F8163D /* Haiya_Alal_FalahApp.swift in Sources */,
 				B17C0A022BA56C2B00F8163D /* PrayerTimeView.swift in Sources */,
 				B169A1542BB138450068CB65 /* LocationNotFoundView.swift in Sources */,
 				B17C09FD2BA56B9300F8163D /* TabBar.swift in Sources */,
 				B169A1572BB13ECE0068CB65 /* AthanView.swift in Sources */,
 				B169A1592BB150390068CB65 /* AthanHome.swift in Sources */,
+				B19DB7282BDE910500347457 /* LocationManagerDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

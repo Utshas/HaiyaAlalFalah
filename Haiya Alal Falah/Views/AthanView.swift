@@ -39,8 +39,7 @@ struct AthanView: View {
                                     }
                                 }
                             }
-                    .navigationTitle("Athan")
-                    
+                    .padding()
                     .fullScreenCover(isPresented: $isPresented, content: { LocationNotFoundView() })
                     
                     .onAppear{
@@ -50,8 +49,7 @@ struct AthanView: View {
                         prayerClass.stopUpdatingLocation()
                           }
                        }
-            
-                   }
+                    }
           
                 }
               

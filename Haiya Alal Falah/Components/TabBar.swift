@@ -21,7 +21,7 @@ struct TabBar: View {
                                .tag(0)
             
                            // Tab 2
-                           Text("Tab 2")
+                           CompassView()
                                .tabItem {
                                    Image(systemName: "magnifyingglass")
                                    Text("Search")
