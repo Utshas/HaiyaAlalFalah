@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B13FF1112BDFC9D6000ACF9F /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B13FF1102BDFC9D6000ACF9F /* SettingsView.swift */; };
+		B13FF1132BDFCCA4000ACF9F /* NotificationSettingsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B13FF1122BDFCCA4000ACF9F /* NotificationSettingsModel.swift */; };
 		B169A1522BB134090068CB65 /* AthanTimeTable.swift in Sources */ = {isa = PBXBuildFile; fileRef = B169A1512BB134090068CB65 /* AthanTimeTable.swift */; };
 		B169A1542BB138450068CB65 /* LocationNotFoundView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B169A1532BB138450068CB65 /* LocationNotFoundView.swift */; };
 		B169A1572BB13ECE0068CB65 /* AthanView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B169A1562BB13ECE0068CB65 /* AthanView.swift */; };
@@ -45,6 +47,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		B13FF1102BDFC9D6000ACF9F /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
+		B13FF1122BDFCCA4000ACF9F /* NotificationSettingsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationSettingsModel.swift; sourceTree = "<group>"; };
 		B169A1512BB134090068CB65 /* AthanTimeTable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AthanTimeTable.swift; sourceTree = "<group>"; };
 		B169A1532BB138450068CB65 /* LocationNotFoundView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationNotFoundView.swift; sourceTree = "<group>"; };
 		B169A1562BB13ECE0068CB65 /* AthanView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AthanView.swift; sourceTree = "<group>"; };
@@ -99,6 +103,7 @@
 				B169A1562BB13ECE0068CB65 /* AthanView.swift */,
 				B169A1582BB150390068CB65 /* AthanHome.swift */,
 				B1F615B42BD516AF00BDE65F /* CompassView.swift */,
+				B13FF1102BDFC9D6000ACF9F /* SettingsView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -168,6 +173,7 @@
 			isa = PBXGroup;
 			children = (
 				B17C09F92BA5511100F8163D /* PrayerTimesAll.swift */,
+				B13FF1122BDFCCA4000ACF9F /* NotificationSettingsModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -328,6 +334,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B169A1522BB134090068CB65 /* AthanTimeTable.swift in Sources */,
+				B13FF1132BDFCCA4000ACF9F /* NotificationSettingsModel.swift in Sources */,
 				B17C09CE2BA54FF700F8163D /* ContentView.swift in Sources */,
 				B17C0A042BA57F3500F8163D /* PrayerTimeTableItem.swift in Sources */,
 				B17C09FA2BA5511100F8163D /* PrayerTimesAll.swift in Sources */,
@@ -339,6 +346,7 @@
 				B169A1572BB13ECE0068CB65 /* AthanView.swift in Sources */,
 				B169A1592BB150390068CB65 /* AthanHome.swift in Sources */,
 				B19DB7282BDE910500347457 /* LocationManagerDelegate.swift in Sources */,
+				B13FF1112BDFC9D6000ACF9F /* SettingsView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

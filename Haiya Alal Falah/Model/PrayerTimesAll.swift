@@ -66,10 +66,6 @@ class PrayerTimesAll:NSObject, ObservableObject, CLLocationManagerDelegate {
                 }
             }
         }
-        
-        
-        
-        
     }
     
     func updateNotificationSettings(for prayerName: String, sendNotification: Bool){
