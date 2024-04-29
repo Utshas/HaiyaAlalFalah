@@ -36,10 +36,12 @@ struct AthanView: View {
                                             .onAppear {
                                                 isPresented = false
                                             }
+                                Text("إِنَّ الصَّلَاةَ تَنْهَىٰ عَنِ الْفَحْشَاءِ وَالْمُنكَرِ").padding(.top).foregroundStyle(Color.orange)
+                                Text("Surely, prayer keeps (one) away from indecency and evil. [ Ankabut : 45 ]").padding(.horizontal).foregroundStyle(Color.green)
                                     }
                                 }
                             }
-                    .padding()
+                    .padding(.top)
                     .fullScreenCover(isPresented: $isPresented, content: { LocationNotFoundView() })
                     
                     .onAppear{

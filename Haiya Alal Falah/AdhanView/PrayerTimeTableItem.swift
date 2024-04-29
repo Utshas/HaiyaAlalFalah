@@ -29,18 +29,18 @@ struct PrayerTimeTableItem: View {
                         }
                         VStack(alignment: .leading){
                             Text(prayerName)
-                                .font(.system(size: 15))
+                                .font(.system(size: 16))
                                 .fontWeight(.medium)
-                                .frame(maxWidth: 70, alignment: .leading)
+                                .frame(maxWidth: 85, alignment: .leading)
                             Text(prayerTime)
-                                .font(.system(size: 15))
+                                .font(.system(size: 16))
                                 .fontWeight(.medium)
-                        }.padding(.trailing, 30)
+                        }.padding(.trailing, 10)
                             .padding(.top,30)
                     }
                 }
             }
-            .padding(.horizontal)
+            .padding(.horizontal,10)
             .padding(.top, 10)
             .padding(.bottom, 10)
         }

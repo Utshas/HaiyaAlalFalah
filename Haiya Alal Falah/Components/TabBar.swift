@@ -23,16 +23,16 @@ struct TabBar: View {
                            // Tab 2
                            CompassView()
                                .tabItem {
-                                   Image(systemName: "magnifyingglass")
-                                   Text("Search")
+                                   Image(systemName: "safari.fill")
+                                   Text("Compass")
                                }
                                .tag(1)
             
                            // Tab 3
                            Text("Tab 3")
                                .tabItem {
-                                   Image(systemName: "person")
-                                   Text("Profile")
+                                   Image(systemName: "gear")
+                                   Text("Settings")
                                }
                                .tag(2)
                        }

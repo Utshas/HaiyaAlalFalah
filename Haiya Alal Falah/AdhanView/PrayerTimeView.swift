@@ -60,7 +60,7 @@ struct PrayerTimeView: View {
                 
                 Spacer()
                 Text("Today").font(.caption)
-            }.padding()
+            }.padding(.bottom).padding(.horizontal)
         }
     }
     
