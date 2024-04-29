@@ -82,7 +82,10 @@ class PrayerTimesAll:NSObject, ObservableObject, CLLocationManagerDelegate {
         let defaults = UserDefaults.standard
         if let savedSettings = defaults.object(forKey: "notificationSettings") as? [String:Bool]{
             notificationSettings = savedSettings
+            
+            print("settings : \(savedSettings)")
         }
+        
         locationManager.delegate = self
         locationManager.desiredAccuracy = kCLLocationAccuracyKilometer
         locationManager.requestWhenInUseAuthorization()

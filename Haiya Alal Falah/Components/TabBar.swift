@@ -20,7 +20,6 @@ struct TabBar: View {
                                }
                                .tag(0)
             
-                           // Tab 2
                            CompassView()
                                .tabItem {
                                    Image(systemName: "safari.fill")
@@ -28,8 +27,7 @@ struct TabBar: View {
                                }
                                .tag(1)
             
-                           // Tab 3
-                           Text("Tab 3")
+                           SettingsView(prayerClass: PrayerTimesAll())
                                .tabItem {
                                    Image(systemName: "gear")
                                    Text("Settings")

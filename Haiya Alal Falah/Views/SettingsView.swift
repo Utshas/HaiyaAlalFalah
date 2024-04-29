@@ -8,9 +8,11 @@
 import SwiftUI
 
 struct SettingsView: View {
+    @ObservedObject var prayerClass:PrayerTimesAll
     @State private var isDropdownVisible = false
+    @StateObject var notificationSettingsModel = NotificationSettingsModel()
     @State private var switchStates = [false, false, false, false, false]
-    let dropdownOptions = ["Option 1", "Option 2", "Option 3", "Option 4", "Option 5"]
+    let prayerNames = ["Fazr", "Sunrise", "Zuhr", "Asr", "Maghrib", "Isha"]
     
     var body: some View {
         VStack(alignment: .leading) {
@@ -24,8 +26,8 @@ struct SettingsView: View {
                 }
                 if isDropdownVisible {
                     Picker("Options", selection: .constant(0)) {
-                        ForEach(0..<dropdownOptions.count) { index in
-                            Text(self.dropdownOptions[index]).tag(index)
+                        ForEach(0..<prayerNames.count) { index in
+                            Text(self.prayerNames[index]).tag(index)
                         }
                     }
                     .pickerStyle(MenuPickerStyle())
@@ -33,18 +35,25 @@ struct SettingsView: View {
             }
             
             
-            ForEach(0..<5) { index in
+            ForEach(0..<prayerNames.count){ key in
                 HStack {
-                    Text("Label \(index + 1):")
+                    Text(prayerNames[key])
                     Spacer()
-                    Toggle("", isOn: self.$switchStates[index])
+                    Toggle("", isOn: Binding(
+                        get: { self.notificationSettingsModel.notificationSettings[prayerNames[key]] ?? false },
+                        set: { newValue in
+                            self.notificationSettingsModel.notificationSettings[prayerNames[key]] = newValue
+                        }
+                    ))
                 }
             }
+            
+                        
         }
         .padding()
     }
 }
 
 #Preview {
-    SettingsView()
+    SettingsView(prayerClass: PrayerTimesAll())
 }
