@@ -25,6 +25,16 @@ class PrayerTimesAll:NSObject, ObservableObject, CLLocationManagerDelegate {
         "Isha": true
     ]
     
+    var calculationMethod: [String: CalculationParameters] = [
+        "Muslim World League": CalculationMethod.muslimWorldLeague.params,
+        "Moon Sighting Committee": CalculationMethod.moonsightingCommittee.params,
+        "Umm Al Qura": CalculationMethod.ummAlQura.params,
+        "Kuwait": CalculationMethod.kuwait.params,
+        "Karachi": CalculationMethod.karachi.params,
+        "North America": CalculationMethod.northAmerica.params,
+        "Turkey": CalculationMethod.turkey.params
+    ]
+    
     
     func scheduleNotification(for prayerTime:Date, with prayerName: String){
         print("setting notification for \(prayerName) on \(prayerTime)")
@@ -41,6 +51,10 @@ class PrayerTimesAll:NSObject, ObservableObject, CLLocationManagerDelegate {
                 print("Error scheduling prayer: \(error.localizedDescription)")
             }
         }
+    }
+    
+    func saveMethodToUserDefaults(_ method: String){
+        UserDefaults.standard.set(method, forKey: "SavedCalculationMethod")
     }
     
     func schedulePrayerNotification(){
@@ -107,7 +121,13 @@ class PrayerTimesAll:NSObject, ObservableObject, CLLocationManagerDelegate {
             return
         }
         let coordinates = Coordinates(latitude: location.coordinate.latitude, longitude: location.coordinate.longitude)
-        let params = CalculationMethod.muslimWorldLeague.params
+        var params = CalculationMethod.muslimWorldLeague.params
+        if let savedValue = UserDefaults.standard.object(forKey: "SavedCalculationMethod") as? String {
+            params = calculationMethod[savedValue] ?? CalculationMethod.muslimWorldLeague.params
+        } else {
+            self.saveMethodToUserDefaults("Muslim World League")
+        }
+        
         let components = Calendar.current.dateComponents([.year, .month, .day], from: location.timestamp)
         var prayerTimes = [PrayerTimes(coordinates: coordinates, date: components, calculationParameters: params)]
         var currentPrayers = PrayerTimes(coordinates: coordinates, date: components, calculationParameters: params)
