@@ -11,40 +11,35 @@ struct SettingsView: View {
     @ObservedObject var prayerClass:PrayerTimesAll
     @State private var isDropdownVisible = false
     @State private var isTextVisible = true
-    @State private var selectedMethod = ""
     @StateObject var notificationSettingsModel = NotificationSettingsModel()
     @State private var switchStates = [false, false, false, false, false]
     private let prayerNames = ["Fazr", "Sunrise", "Zuhr", "Asr", "Maghrib", "Isha"]
-    private let calculationMethods = ["Muslim World League","Moon Sighting Committee","Umm Al Qura","Kuwait","Karachi","North America","Turkey"]
+    private let calculationMethods = ["Moon Sighting Committee","Umm Al Qura","Kuwait","Muslim World League","Karachi","North America","Turkey"]
+    @State private var selectedMethod = UserDefaults.standard.string(forKey: "SavedCalculationMethod") ?? "Muslim World League"
     
     var body: some View {
         VStack(alignment: .leading) {
-            Text("Calculation Method:").fontWeight(.bold)
-            HStack {
-                Spacer()
-                Button(action: {
-                    self.isDropdownVisible.toggle()
-                    self.isTextVisible.toggle()
-                }) {
-                    if(isTextVisible){
-                        Text("Select Method")
+            Text("Calculation Method").fontWeight(.bold)
+                .foregroundStyle(Color.orange)
+                .font(.system(size: 22))
+            Text("\(selectedMethod.capitalized)")
+                .foregroundStyle(Color.green)
+                .font(.system(size: 11))
+            Picker("Options", selection: $selectedMethod) {
+                    ForEach(0..<calculationMethods.count) { index in
+                        Text(calculationMethods[index])
+                            .tag(calculationMethods[index])
                     }
-                }
-                if isDropdownVisible {
-                    Picker("Options", selection: $selectedMethod) {
-                            ForEach(0..<calculationMethods.count) { index in
-                                CustomPickerRow(text: self.calculationMethods[index]) {
-                                            print("Pressed \(self.calculationMethods[index])")
-                                        }
-                                        .tag(index)
-                            }
-                        }
-                        .pickerStyle(MenuPickerStyle())
-                }
             }
-            
-            Divider()
+            .onChange(of: selectedMethod){ _ in
+                prayerClass.saveMethodToUserDefaults(selectedMethod)
+            }
+            .pickerStyle(.wheel)
+           
+            Divider().padding(.bottom)
             Text("Notification for prayers").fontWeight(.bold)
+                .foregroundStyle(Color.orange)
+                .font(.system(size: 22))
             ForEach(0..<prayerNames.count){ key in
                 HStack {
                     Text(prayerNames[key])
@@ -61,16 +56,13 @@ struct SettingsView: View {
                         
         }
         .padding()
+        .padding(.top,0)
     }
     struct CustomPickerRow: View {
         var text: String
         var action: () -> Void
-        
         var body: some View {
             Text(text)
-                .onSubmit {
-                    print("y")
-                }
         }
     }
 }

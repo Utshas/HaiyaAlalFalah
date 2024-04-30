@@ -123,6 +123,7 @@ class PrayerTimesAll:NSObject, ObservableObject, CLLocationManagerDelegate {
         let coordinates = Coordinates(latitude: location.coordinate.latitude, longitude: location.coordinate.longitude)
         var params = CalculationMethod.muslimWorldLeague.params
         if let savedValue = UserDefaults.standard.object(forKey: "SavedCalculationMethod") as? String {
+            print(savedValue)
             params = calculationMethod[savedValue] ?? CalculationMethod.muslimWorldLeague.params
         } else {
             self.saveMethodToUserDefaults("Muslim World League")
