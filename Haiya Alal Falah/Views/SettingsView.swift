@@ -10,31 +10,41 @@ import SwiftUI
 struct SettingsView: View {
     @ObservedObject var prayerClass:PrayerTimesAll
     @State private var isDropdownVisible = false
+    @State private var isTextVisible = true
+    @State private var selectedMethod = ""
     @StateObject var notificationSettingsModel = NotificationSettingsModel()
     @State private var switchStates = [false, false, false, false, false]
-    let prayerNames = ["Fazr", "Sunrise", "Zuhr", "Asr", "Maghrib", "Isha"]
+    private let prayerNames = ["Fazr", "Sunrise", "Zuhr", "Asr", "Maghrib", "Isha"]
+    private let calculationMethods = ["Muslim World League","Moon Sighting Committee","Umm Al Qura","Kuwait","Karachi","North America","Turkey"]
     
     var body: some View {
         VStack(alignment: .leading) {
+            Text("Calculation Method:").fontWeight(.bold)
             HStack {
-                Text("Calculation Method:")
                 Spacer()
                 Button(action: {
                     self.isDropdownVisible.toggle()
+                    self.isTextVisible.toggle()
                 }) {
-                    Text("Select Method")
+                    if(isTextVisible){
+                        Text("Select Method")
+                    }
                 }
                 if isDropdownVisible {
-                    Picker("Options", selection: .constant(0)) {
-                        ForEach(0..<prayerNames.count) { index in
-                            Text(self.prayerNames[index]).tag(index)
+                    Picker("Options", selection: $selectedMethod) {
+                            ForEach(0..<calculationMethods.count) { index in
+                                CustomPickerRow(text: self.calculationMethods[index]) {
+                                            print("Pressed \(self.calculationMethods[index])")
+                                        }
+                                        .tag(index)
+                            }
                         }
-                    }
-                    .pickerStyle(MenuPickerStyle())
+                        .pickerStyle(MenuPickerStyle())
                 }
             }
             
-            
+            Divider()
+            Text("Notification for prayers").fontWeight(.bold)
             ForEach(0..<prayerNames.count){ key in
                 HStack {
                     Text(prayerNames[key])
@@ -51,6 +61,17 @@ struct SettingsView: View {
                         
         }
         .padding()
+    }
+    struct CustomPickerRow: View {
+        var text: String
+        var action: () -> Void
+        
+        var body: some View {
+            Text(text)
+                .onSubmit {
+                    print("y")
+                }
+        }
     }
 }
 
