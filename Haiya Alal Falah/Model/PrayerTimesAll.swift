@@ -22,7 +22,7 @@ class PrayerTimesAll:NSObject, ObservableObject, CLLocationManagerDelegate {
         "Zuhr": true,
         "Asr": true,
         "Maghrib": true,
-        "Isha": true
+        "Isha": true,
     ]
     
     var calculationMethod: [String: CalculationParameters] = [
@@ -41,6 +41,7 @@ class PrayerTimesAll:NSObject, ObservableObject, CLLocationManagerDelegate {
         let content = UNMutableNotificationContent()
         content.title = prayerName
         content.body = "It's time for \(prayerName)"
+        content.sound = UNNotificationSound(named:UNNotificationSoundName(rawValue: "bell.mp3"))
         
         let prayerComponents = Calendar.current.dateComponents([.year, .month, .day, .hour, .minute], from: prayerTime)
         print(prayerComponents)
@@ -79,6 +80,11 @@ class PrayerTimesAll:NSObject, ObservableObject, CLLocationManagerDelegate {
                     
                 }
             }
+            //test
+            // Get the current date
+            let currentDate = Date()
+            let testDate = currentDate.addingTimeInterval(30) // Add 1min to the current date
+            scheduleNotification(for: testDate, with: "test")
         }
     }
     
@@ -162,6 +168,7 @@ class PrayerTimesAll:NSObject, ObservableObject, CLLocationManagerDelegate {
         }
     }
     
+    
     func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
         DispatchQueue.main.async {
             self.error = error
@@ -183,7 +190,7 @@ class PrayerTimesAll:NSObject, ObservableObject, CLLocationManagerDelegate {
         let formatter = DateFormatter()
         formatter.timeStyle = .short
         formatter.timeZone = TimeZone.current
-        
         return formatter.string(from: prayerTime)
     }
+    
 }
