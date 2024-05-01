@@ -162,8 +162,11 @@ class PrayerTimesAll:NSObject, ObservableObject, CLLocationManagerDelegate {
                 }
             }else if let placemark = placemarks?.first{
                 DispatchQueue.main.async {
-                    self.city = placemark.locality ?? placemark.administrativeArea ?? placemark.country ?? "Unspecified"
+                    self.city = placemark.locality ?? placemark.administrativeArea ?? placemark.country ?? "World"
+                    Context.shared.city = self.city ?? "World"
                 }
+                Context.shared.lattitude = location.coordinate.latitude
+                Context.shared.longitude = location.coordinate.longitude
             }
         }
     }

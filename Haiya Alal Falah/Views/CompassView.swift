@@ -51,7 +51,7 @@ struct CompassView: View {
                     .font(.system(size: 20))
                     .padding(.bottom,50)
                     .foregroundStyle(.orange)
-                Text("Location: Miyazaki").padding(.bottom,50)
+                Text("Location: \(Context.shared.city.capitalized)").padding(.bottom,50)
                     .bold()
             }.padding(.top,30)
         }
@@ -70,8 +70,8 @@ struct CompassView: View {
         // Coordinates of Mecca
         let meccaLatitude = 21.4225
         let meccaLongitude = 39.8262
-        let currentLatitude = 31.9134
-        let currentLongitude = 131.4291
+        let currentLatitude = Context.shared.lattitude
+        let currentLongitude = Context.shared.longitude
         
         // Calculate the angle between current location and Mecca
         let deltaLongitude = meccaLongitude - currentLongitude
