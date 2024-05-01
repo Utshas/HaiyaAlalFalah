@@ -14,13 +14,46 @@ struct CompassView: View {
 
     var body: some View {
         VStack {
-            Text("Heading: \(Int(heading))°")
-                .padding()
-            
-            Image(systemName: "location.north.fill")
-                .rotationEffect(.degrees(calculateHeadingToMecca(currentHeading: heading)))
-                .font(.system(size: 100))
-                .padding()
+            HStack(){
+                Image(uiImage: UIImage(named: "AppIcon")!)
+                    .resizable()
+                    .frame(width: 40, height: 50)
+                    .padding(.top, 40)
+                Text("Qibla Direction ").padding(.top,45)
+                    .font(.system(size: 24))
+                    .bold()
+                    .foregroundStyle(.orange)
+            }
+            Spacer()
+            VStack{
+                ZStack {
+                    Circle()
+                        .fill(Color.white.opacity(0.3))
+                        .frame(width: 50, height: 50)
+                    Image(uiImage: UIImage(named: "kabah")!)
+                        .resizable()
+                        .frame(width: 40, height: 40)
+                }
+                Image(systemName: "location.north.fill")
+                    .font(.system(size: 100))
+                    .padding()
+                    .foregroundStyle(.orange)
+                
+                Text("Rotation : \(Int(heading))°")
+                    .font(.system(size: 14))
+                    .bold()
+                    .foregroundStyle(.orange)
+            }
+            .rotationEffect(.degrees(calculateHeadingToMecca(currentHeading: heading)))
+            Spacer()
+            HStack{
+                Image(systemName: "location.circle.fill")
+                    .font(.system(size: 20))
+                    .padding(.bottom,50)
+                    .foregroundStyle(.orange)
+                Text("Location: Miyazaki").padding(.bottom,50)
+                    .bold()
+            }.padding(.top,30)
         }
         .onAppear {
             locationManagerDelegate.startUpdatingHeading()
@@ -37,24 +70,18 @@ struct CompassView: View {
         // Coordinates of Mecca
         let meccaLatitude = 21.4225
         let meccaLongitude = 39.8262
-        let currentLatitude = 31.913417646154066
-        let currentLongitude = 131.42908258778093
-        
-        // Coordinates of the current location (you can get these from locationManagerDelegate)
-        // GET CURRENT LAT LONG
+        let currentLatitude = 31.9134
+        let currentLongitude = 131.4291
         
         // Calculate the angle between current location and Mecca
         let deltaLongitude = meccaLongitude - currentLongitude
         let y = sin(deltaLongitude) * cos(meccaLatitude)
         let x = cos(currentLatitude) * sin(meccaLatitude) - sin(currentLatitude) * cos(meccaLatitude) * cos(deltaLongitude)
         let angleToMecca = atan2(y, x)
-        
         // Convert radians to degrees
         let degreesToMecca = angleToMecca * 180 / .pi
-        
         // Adjust the angle based on the current heading
         let headingToMecca = 360 - (degreesToMecca - currentHeading)
-        
         return -headingToMecca
     }
 }

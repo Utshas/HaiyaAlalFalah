@@ -13,6 +13,7 @@ struct ContentView: View {
             TabBar()
         }
         .padding()
+        .edgesIgnoringSafeArea(.top)
     }
 }
 

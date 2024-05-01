@@ -25,6 +25,8 @@
 		B17C09FD2BA56B9300F8163D /* TabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = B17C09FC2BA56B9300F8163D /* TabBar.swift */; };
 		B17C0A022BA56C2B00F8163D /* PrayerTimeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B17C0A012BA56C2B00F8163D /* PrayerTimeView.swift */; };
 		B17C0A042BA57F3500F8163D /* PrayerTimeTableItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = B17C0A032BA57F3500F8163D /* PrayerTimeTableItem.swift */; };
+		B18D70F82BE1E3610018F443 /* adhan.m4a in Resources */ = {isa = PBXBuildFile; fileRef = B18D70F72BE1E3600018F443 /* adhan.m4a */; };
+		B18D70FA2BE1E5110018F443 /* bell.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = B18D70F92BE1E5110018F443 /* bell.mp3 */; };
 		B19DB7282BDE910500347457 /* LocationManagerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B19DB7272BDE910500347457 /* LocationManagerDelegate.swift */; };
 		B1F615B52BD516AF00BDE65F /* CompassView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1F615B42BD516AF00BDE65F /* CompassView.swift */; };
 /* End PBXBuildFile section */
@@ -67,6 +69,8 @@
 		B17C09FC2BA56B9300F8163D /* TabBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBar.swift; sourceTree = "<group>"; };
 		B17C0A012BA56C2B00F8163D /* PrayerTimeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrayerTimeView.swift; sourceTree = "<group>"; };
 		B17C0A032BA57F3500F8163D /* PrayerTimeTableItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrayerTimeTableItem.swift; sourceTree = "<group>"; };
+		B18D70F72BE1E3600018F443 /* adhan.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = adhan.m4a; sourceTree = "<group>"; };
+		B18D70F92BE1E5110018F443 /* bell.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = bell.mp3; sourceTree = "<group>"; };
 		B19DB7272BDE910500347457 /* LocationManagerDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManagerDelegate.swift; sourceTree = "<group>"; };
 		B1F615B42BD516AF00BDE65F /* CompassView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompassView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -131,6 +135,8 @@
 		B17C09CA2BA54FF700F8163D /* Haiya Alal Falah */ = {
 			isa = PBXGroup;
 			children = (
+				B18D70F92BE1E5110018F443 /* bell.mp3 */,
+				B18D70F72BE1E3600018F443 /* adhan.m4a */,
 				B169A1552BB13EAD0068CB65 /* Views */,
 				B17C09FE2BA56BCF00F8163D /* AdhanView */,
 				B17C09FB2BA56AE300F8163D /* Components */,
@@ -308,7 +314,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				B17C09D32BA54FF800F8163D /* Preview Assets.xcassets in Resources */,
+				B18D70FA2BE1E5110018F443 /* bell.mp3 in Resources */,
 				B17C09D02BA54FF800F8163D /* Assets.xcassets in Resources */,
+				B18D70F82BE1E3610018F443 /* adhan.m4a in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -10,6 +10,7 @@ import SwiftUI
 struct AthanHome: View {
     var body: some View {
         AthanView(prayerClass: PrayerTimesAll())
+            
     }
 }
 

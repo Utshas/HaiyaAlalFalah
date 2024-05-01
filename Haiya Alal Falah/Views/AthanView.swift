@@ -51,6 +51,7 @@ struct AthanView: View {
                         prayerClass.stopUpdatingLocation()
                           }
                        }
+                
                     }
           
                 }
