@@ -13,18 +13,22 @@ struct SettingsView: View {
     @State private var isTextVisible = true
     @StateObject var notificationSettingsModel = NotificationSettingsModel()
     @State private var switchStates = [false, false, false, false, false]
-    private let prayerNames = ["Fazr", "Sunrise", "Zuhr", "Asr", "Maghrib", "Isha"]
+    private let prayerNames = ["Fazr", "Zuhr", "Asr", "Maghrib", "Isha"]
     private let calculationMethods = ["Moon Sighting Committee","Umm Al Qura","Kuwait","Muslim World League","Karachi","North America","Turkey"]
     @State private var selectedMethod = UserDefaults.standard.string(forKey: "SavedCalculationMethod") ?? "Muslim World League"
+    @State private var selectedSound = UserDefaults.standard.string(forKey: "SavedNotificationSound") ?? "Iqamah"
     
     var body: some View {
         VStack(alignment: .leading) {
-            Text("Calculation Method").fontWeight(.bold)
-                .foregroundStyle(Color.orange)
-                .font(.system(size: 22))
-            Text("\(selectedMethod.capitalized)")
-                .foregroundStyle(Color.green)
-                .font(.system(size: 11))
+            HStack(){
+                Image(uiImage: UIImage(named: "AppIcon")!)
+                    .resizable()
+                    .frame(width: 40, height: 50)
+                    .padding(.top, -10)
+                Text("Calculation Method").fontWeight(.bold)
+                    .foregroundStyle(Color.orange)
+                    .font(.system(size: 22))
+            }
             Picker("Options", selection: $selectedMethod) {
                     ForEach(0..<calculationMethods.count) { index in
                         Text(calculationMethods[index])
@@ -37,9 +41,35 @@ struct SettingsView: View {
             .pickerStyle(.wheel)
            
             Divider().padding(.bottom)
-            Text("Notification for prayers").fontWeight(.bold)
-                .foregroundStyle(Color.orange)
-                .font(.system(size: 22))
+            HStack(){
+                Image(uiImage: UIImage(named: "AppIcon")!)
+                    .resizable()
+                    .frame(width: 40, height: 50)
+                    .padding(.top, -10)
+                Text("Notification for prayers").fontWeight(.bold)
+                    .foregroundStyle(Color.orange)
+                    .font(.system(size: 22))
+            }
+            Picker("Options", selection: $selectedSound) {
+                        Text("Azan").tag("Azan")
+                        Text("Iqamah").tag("Iqamah")
+                        Text("Beep").tag("Beep")
+            }
+            .onChange(of: selectedSound){ _ in
+                prayerClass.saveSoundToUserDefaults(selectedSound)
+            }
+            .pickerStyle(.segmented)
+           
+            Divider().padding(.bottom)
+            HStack(){
+                Image(uiImage: UIImage(named: "AppIcon")!)
+                    .resizable()
+                    .frame(width: 40, height: 50)
+                    .padding(.top, -10)
+                Text("Notification for prayers").fontWeight(.bold)
+                    .foregroundStyle(Color.orange)
+                    .font(.system(size: 22))
+            }
             ForEach(0..<prayerNames.count){ key in
                 HStack {
                     Text(prayerNames[key])

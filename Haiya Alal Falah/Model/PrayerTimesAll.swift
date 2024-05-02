@@ -38,10 +38,17 @@ class PrayerTimesAll:NSObject, ObservableObject, CLLocationManagerDelegate {
     
     func scheduleNotification(for prayerTime:Date, with prayerName: String){
         print("setting notification for \(prayerName) on \(prayerTime)")
+        let soundType = UserDefaults.standard.string(forKey: "SavedNotificationSound") ?? "Iqamah"
+        var sound = "iqamah.mp3"
+        if(soundType=="Azan"){
+            sound = "azan.mp3"
+        }else if(sound == "Beep"){
+            sound = "beep.mp3"
+        }
         let content = UNMutableNotificationContent()
         content.title = prayerName
         content.body = "It's time for \(prayerName)"
-        content.sound = UNNotificationSound(named:UNNotificationSoundName(rawValue: "bell.mp3"))
+        content.sound = UNNotificationSound(named:UNNotificationSoundName(rawValue: sound))
         
         let prayerComponents = Calendar.current.dateComponents([.year, .month, .day, .hour, .minute], from: prayerTime)
         print(prayerComponents)
@@ -56,6 +63,10 @@ class PrayerTimesAll:NSObject, ObservableObject, CLLocationManagerDelegate {
     
     func saveMethodToUserDefaults(_ method: String){
         UserDefaults.standard.set(method, forKey: "SavedCalculationMethod")
+    }
+    
+    func saveSoundToUserDefaults(_ sound: String = "Iqamah"){
+        UserDefaults.standard.set(sound, forKey: "SavedNotificationSound")
     }
     
     func schedulePrayerNotification(){
@@ -82,9 +93,9 @@ class PrayerTimesAll:NSObject, ObservableObject, CLLocationManagerDelegate {
             }
             //test
             // Get the current date
-            let currentDate = Date()
-            let testDate = currentDate.addingTimeInterval(30) // Add 1min to the current date
-            scheduleNotification(for: testDate, with: "test")
+//            let currentDate = Date()
+//            let testDate = currentDate.addingTimeInterval(30) // Add 1min to the current date
+//            scheduleNotification(for: testDate, with: "test")
         }
     }
     
@@ -102,10 +113,8 @@ class PrayerTimesAll:NSObject, ObservableObject, CLLocationManagerDelegate {
         let defaults = UserDefaults.standard
         if let savedSettings = defaults.object(forKey: "notificationSettings") as? [String:Bool]{
             notificationSettings = savedSettings
-            
             print("settings : \(savedSettings)")
         }
-        
         locationManager.delegate = self
         locationManager.desiredAccuracy = kCLLocationAccuracyKilometer
         locationManager.requestWhenInUseAuthorization()

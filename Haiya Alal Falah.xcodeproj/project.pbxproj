@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B103D5872BE3DBE000D2E3E0 /* iqamah.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = B103D5862BE3DBE000D2E3E0 /* iqamah.mp3 */; };
 		B13FF1112BDFC9D6000ACF9F /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B13FF1102BDFC9D6000ACF9F /* SettingsView.swift */; };
 		B13FF1132BDFCCA4000ACF9F /* NotificationSettingsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B13FF1122BDFCCA4000ACF9F /* NotificationSettingsModel.swift */; };
 		B169A1522BB134090068CB65 /* AthanTimeTable.swift in Sources */ = {isa = PBXBuildFile; fileRef = B169A1512BB134090068CB65 /* AthanTimeTable.swift */; };
@@ -25,8 +26,7 @@
 		B17C09FD2BA56B9300F8163D /* TabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = B17C09FC2BA56B9300F8163D /* TabBar.swift */; };
 		B17C0A022BA56C2B00F8163D /* PrayerTimeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B17C0A012BA56C2B00F8163D /* PrayerTimeView.swift */; };
 		B17C0A042BA57F3500F8163D /* PrayerTimeTableItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = B17C0A032BA57F3500F8163D /* PrayerTimeTableItem.swift */; };
-		B18D70F82BE1E3610018F443 /* adhan.m4a in Resources */ = {isa = PBXBuildFile; fileRef = B18D70F72BE1E3600018F443 /* adhan.m4a */; };
-		B18D70FA2BE1E5110018F443 /* bell.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = B18D70F92BE1E5110018F443 /* bell.mp3 */; };
+		B1822A8F2BE294B100F8D25C /* adhan.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = B1822A8E2BE294B100F8D25C /* adhan.mp3 */; };
 		B18D70FC2BE263410018F443 /* Context.swift in Sources */ = {isa = PBXBuildFile; fileRef = B18D70FB2BE263410018F443 /* Context.swift */; };
 		B19DB7282BDE910500347457 /* LocationManagerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B19DB7272BDE910500347457 /* LocationManagerDelegate.swift */; };
 		B1F615B52BD516AF00BDE65F /* CompassView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1F615B42BD516AF00BDE65F /* CompassView.swift */; };
@@ -50,6 +50,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		B103D5862BE3DBE000D2E3E0 /* iqamah.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = iqamah.mp3; sourceTree = "<group>"; };
 		B13FF1102BDFC9D6000ACF9F /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		B13FF1122BDFCCA4000ACF9F /* NotificationSettingsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationSettingsModel.swift; sourceTree = "<group>"; };
 		B169A1512BB134090068CB65 /* AthanTimeTable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AthanTimeTable.swift; sourceTree = "<group>"; };
@@ -70,8 +71,7 @@
 		B17C09FC2BA56B9300F8163D /* TabBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBar.swift; sourceTree = "<group>"; };
 		B17C0A012BA56C2B00F8163D /* PrayerTimeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrayerTimeView.swift; sourceTree = "<group>"; };
 		B17C0A032BA57F3500F8163D /* PrayerTimeTableItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrayerTimeTableItem.swift; sourceTree = "<group>"; };
-		B18D70F72BE1E3600018F443 /* adhan.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = adhan.m4a; sourceTree = "<group>"; };
-		B18D70F92BE1E5110018F443 /* bell.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = bell.mp3; sourceTree = "<group>"; };
+		B1822A8E2BE294B100F8D25C /* adhan.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = adhan.mp3; sourceTree = "<group>"; };
 		B18D70FB2BE263410018F443 /* Context.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Context.swift; sourceTree = "<group>"; };
 		B19DB7272BDE910500347457 /* LocationManagerDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManagerDelegate.swift; sourceTree = "<group>"; };
 		B1F615B42BD516AF00BDE65F /* CompassView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompassView.swift; sourceTree = "<group>"; };
@@ -137,8 +137,8 @@
 		B17C09CA2BA54FF700F8163D /* Haiya Alal Falah */ = {
 			isa = PBXGroup;
 			children = (
-				B18D70F92BE1E5110018F443 /* bell.mp3 */,
-				B18D70F72BE1E3600018F443 /* adhan.m4a */,
+				B103D5862BE3DBE000D2E3E0 /* iqamah.mp3 */,
+				B1822A8E2BE294B100F8D25C /* adhan.mp3 */,
 				B169A1552BB13EAD0068CB65 /* Views */,
 				B17C09FE2BA56BCF00F8163D /* AdhanView */,
 				B17C09FB2BA56AE300F8163D /* Components */,
@@ -317,9 +317,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				B17C09D32BA54FF800F8163D /* Preview Assets.xcassets in Resources */,
-				B18D70FA2BE1E5110018F443 /* bell.mp3 in Resources */,
+				B103D5872BE3DBE000D2E3E0 /* iqamah.mp3 in Resources */,
 				B17C09D02BA54FF800F8163D /* Assets.xcassets in Resources */,
-				B18D70F82BE1E3610018F443 /* adhan.m4a in Resources */,
+				B1822A8F2BE294B100F8D25C /* adhan.mp3 in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
