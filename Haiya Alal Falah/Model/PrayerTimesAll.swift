@@ -39,21 +39,19 @@ class PrayerTimesAll:NSObject, ObservableObject, CLLocationManagerDelegate {
     func scheduleNotification(for prayerTime:Date, with prayerName: String){
         print("setting notification for \(prayerName) on \(prayerTime)")
         let soundType = UserDefaults.standard.string(forKey: "SavedNotificationSound") ?? "Iqamah"
-        var sound = "iqamah.mp3"
-        if(soundType=="Azan"){
-            sound = "azan.mp3"
-        }else if(sound == "Beep"){
-            sound = "beep.mp3"
-        }
         let content = UNMutableNotificationContent()
         content.title = prayerName
         content.body = "It's time for \(prayerName)"
-        content.sound = UNNotificationSound(named:UNNotificationSoundName(rawValue: sound))
+        if(soundType=="Iqamah"){
+            content.sound = UNNotificationSound(named:UNNotificationSoundName(rawValue: "tone1.mp3"))
+        }
+        
+        content.categoryIdentifier = "your_notification_category_identifier"
         
         let prayerComponents = Calendar.current.dateComponents([.year, .month, .day, .hour, .minute], from: prayerTime)
         print(prayerComponents)
         let trigger = UNCalendarNotificationTrigger(dateMatching: prayerComponents, repeats: false)
-        let request = UNNotificationRequest(identifier: UUID().uuidString, content: content, trigger: trigger)
+        let request = UNNotificationRequest(identifier: "HAF"+UUID().uuidString, content: content, trigger: trigger)
         UNUserNotificationCenter.current().add(request) { error in
             if let error = error {
                 print("Error scheduling prayer: \(error.localizedDescription)")
@@ -91,10 +89,10 @@ class PrayerTimesAll:NSObject, ObservableObject, CLLocationManagerDelegate {
                     
                 }
             }
-            //test
-            // Get the current date
+//            test
+//             Get the current date
 //            let currentDate = Date()
-//            let testDate = currentDate.addingTimeInterval(30) // Add 1min to the current date
+//            let testDate = currentDate.addingTimeInterval(32) // Add 1min to the current date
 //            scheduleNotification(for: testDate, with: "test")
         }
     }

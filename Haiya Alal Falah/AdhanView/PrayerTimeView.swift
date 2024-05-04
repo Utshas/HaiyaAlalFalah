@@ -30,7 +30,7 @@ struct PrayerTimeView: View {
                             .foregroundStyle(.green)
                     }
                     .padding()
-                    Text("\(prayerName) time")
+                    Text("\(prayerName.uppercased())")
                         .font(.system(size: 15))
                         .fontWeight(.bold)
                         .foregroundStyle(.orange)
@@ -49,7 +49,6 @@ struct PrayerTimeView: View {
                         .fontWeight(.bold)
                         .foregroundStyle(.white)
                 }
-                .padding(.bottom)
                 .padding(.horizontal)
             }
             .padding(.top)

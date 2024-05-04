@@ -16,7 +16,7 @@ struct SettingsView: View {
     private let prayerNames = ["Fazr", "Zuhr", "Asr", "Maghrib", "Isha"]
     private let calculationMethods = ["Moon Sighting Committee","Umm Al Qura","Kuwait","Muslim World League","Karachi","North America","Turkey"]
     @State private var selectedMethod = UserDefaults.standard.string(forKey: "SavedCalculationMethod") ?? "Muslim World League"
-    @State private var selectedSound = UserDefaults.standard.string(forKey: "SavedNotificationSound") ?? "Iqamah"
+    @State private var selectedSound = UserDefaults.standard.string(forKey: "SavedNotificationSound") ?? "Azan"
     
     var body: some View {
         VStack(alignment: .leading) {
@@ -28,7 +28,7 @@ struct SettingsView: View {
                 Text("Calculation Method").fontWeight(.bold)
                     .foregroundStyle(Color.orange)
                     .font(.system(size: 22))
-            }
+            }.padding(.bottom,-10)
             Picker("Options", selection: $selectedMethod) {
                     ForEach(0..<calculationMethods.count) { index in
                         Text(calculationMethods[index])
@@ -46,13 +46,13 @@ struct SettingsView: View {
                     .resizable()
                     .frame(width: 40, height: 50)
                     .padding(.top, -10)
-                Text("Notification for prayers").fontWeight(.bold)
+                Text("Notification Type").fontWeight(.bold)
                     .foregroundStyle(Color.orange)
                     .font(.system(size: 22))
             }
             Picker("Options", selection: $selectedSound) {
                         Text("Azan").tag("Azan")
-                        Text("Iqamah").tag("Iqamah")
+                        Text("Haiya Alal Falah").tag("Iqamah")
                         Text("Beep").tag("Beep")
             }
             .onChange(of: selectedSound){ _ in
@@ -66,7 +66,7 @@ struct SettingsView: View {
                     .resizable()
                     .frame(width: 40, height: 50)
                     .padding(.top, -10)
-                Text("Notification for prayers").fontWeight(.bold)
+                Text("Notification On/Off").fontWeight(.bold)
                     .foregroundStyle(Color.orange)
                     .font(.system(size: 22))
             }

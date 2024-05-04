@@ -7,37 +7,40 @@
 
 import SwiftUI
 import AVFoundation
+import UserNotifications
 
 @main
 struct Haiya_Alal_FalahApp: App {
+    @UIApplicationDelegateAdaptor(AppDelegate.self) var appDelegate
     var body: some Scene {
         WindowGroup {
             ContentView()
+            }
         }
-    }
 }
 
 class AppDelegate: NSObject, UIApplicationDelegate, UNUserNotificationCenterDelegate {
     var audioPlayer: AVAudioPlayer?
     
-    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey : Any]? = nil) -> Bool {
-        UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .sound, .badge]) { granted, error in
-            if granted {
-                UNUserNotificationCenter.current().delegate = self
-            } else {
-                print("Notification permissions denied.")
-            }
-        }
+    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
+        UNUserNotificationCenter.current().delegate = self
         return true
     }
     
-    func userNotificationCenter(_ center: UNUserNotificationCenter, willPresent notification: UNNotification, withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
-        playCustomSound()
-        completionHandler([.alert, .sound, .badge])
+    // For iOS 10 and later
+    func userNotificationCenter(_ center: UNUserNotificationCenter, didReceive response: UNNotificationResponse, withCompletionHandler completionHandler: @escaping () -> Void) {
+        
+        if response.notification.request.content.categoryIdentifier == "your_notification_category_identifier" {
+            let sound_type = UserDefaults.standard.string(forKey: "SavedNotificationSound") ?? "Azan"
+            if(sound_type == "Azan"){
+                playCustomSound()
+            }
+        }
+        completionHandler()
     }
     
     func playCustomSound() {
-        guard let soundURL = Bundle.main.url(forResource: "adhan", withExtension: "m4a") else {
+        guard let soundURL = Bundle.main.url(forResource: "azan", withExtension: "mp3") else {
             print("Custom sound file not found.")
             return
         }
@@ -49,3 +52,5 @@ class AppDelegate: NSObject, UIApplicationDelegate, UNUserNotificationCenterDele
         }
     }
 }
+
+
