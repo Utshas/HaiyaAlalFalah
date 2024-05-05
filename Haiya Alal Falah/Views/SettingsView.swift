@@ -21,7 +21,7 @@ struct SettingsView: View {
     var body: some View {
         VStack(alignment: .leading) {
             HStack(){
-                Image(uiImage: UIImage(named: "AppIcon")!)
+                Image(uiImage: UIImage(named: "t_icon")!)
                     .resizable()
                     .frame(width: 40, height: 50)
                     .padding(.top, -10)
@@ -42,7 +42,7 @@ struct SettingsView: View {
            
             Divider().padding(.bottom)
             HStack(){
-                Image(uiImage: UIImage(named: "AppIcon")!)
+                Image(uiImage: UIImage(named: "t_icon")!)
                     .resizable()
                     .frame(width: 40, height: 50)
                     .padding(.top, -10)
@@ -61,7 +61,7 @@ struct SettingsView: View {
            
             Divider().padding(.bottom)
             HStack(){
-                Image(uiImage: UIImage(named: "AppIcon")!)
+                Image(uiImage: UIImage(named: "t_icon")!)
                     .resizable()
                     .frame(width: 40, height: 50)
                     .padding(.top, -10)
