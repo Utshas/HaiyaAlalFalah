@@ -15,7 +15,7 @@ struct CompassView: View {
     var body: some View {
         VStack {
             HStack(){
-                Image(uiImage: UIImage(named: "t_con")!)
+                Image(uiImage: UIImage(named: "t_icon")!)
                     .resizable()
                     .frame(width: 40, height: 50)
                     .padding(.top, 40)

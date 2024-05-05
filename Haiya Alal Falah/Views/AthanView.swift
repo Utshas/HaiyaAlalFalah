@@ -14,7 +14,7 @@ struct AthanView: View {
     var body: some View {
             NavigationView{
                 ZStack{
-                    Color("bg")
+                    Color(.init())
                         .ignoresSafeArea()
                     ScrollView{
                         if prayerClass.error != nil {
@@ -59,5 +59,5 @@ struct AthanView: View {
             }
 
 #Preview {
-    AthanView(prayerClass: PrayerTimesAll())
+    AthanView(prayerClass: PrayerTimesAll()).preferredColorScheme(.light)
 }
