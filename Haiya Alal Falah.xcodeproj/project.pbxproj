@@ -50,6 +50,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		B12B0FA92BE65AC300301F86 /* Haiya-Alal-Falah-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "Haiya-Alal-Falah-Info.plist"; sourceTree = SOURCE_ROOT; };
 		B13FF1102BDFC9D6000ACF9F /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		B13FF1122BDFCCA4000ACF9F /* NotificationSettingsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationSettingsModel.swift; sourceTree = "<group>"; };
 		B169A1512BB134090068CB65 /* AthanTimeTable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AthanTimeTable.swift; sourceTree = "<group>"; };
@@ -137,6 +138,7 @@
 		B17C09CA2BA54FF700F8163D /* Haiya Alal Falah */ = {
 			isa = PBXGroup;
 			children = (
+				B12B0FA92BE65AC300301F86 /* Haiya-Alal-Falah-Info.plist */,
 				B188CA0E2BE6229B00EE641B /* azan.mp3 */,
 				B188CA102BE6245700EE641B /* tone1.mp3 */,
 				B169A1552BB13EAD0068CB65 /* Views */,
@@ -525,6 +527,7 @@
 				DEVELOPMENT_TEAM = VBK8LB6FN4;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "Haiya-Alal-Falah-Info.plist";
 				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "to get athan time based on location, please allow";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -556,6 +559,7 @@
 				DEVELOPMENT_TEAM = VBK8LB6FN4;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "Haiya-Alal-Falah-Info.plist";
 				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "to get athan time based on location, please allow";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;

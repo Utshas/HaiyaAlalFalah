@@ -38,14 +38,10 @@ class PrayerTimesAll:NSObject, ObservableObject, CLLocationManagerDelegate {
     
     func scheduleNotification(for prayerTime:Date, with prayerName: String){
         print("setting notification for \(prayerName) on \(prayerTime)")
-        let soundType = UserDefaults.standard.string(forKey: "SavedNotificationSound") ?? "Iqamah"
         let content = UNMutableNotificationContent()
         content.title = prayerName
         content.body = "It's time for \(prayerName)"
-        if(soundType=="Iqamah"){
-            content.sound = UNNotificationSound(named:UNNotificationSoundName(rawValue: "tone1.mp3"))
-        }
-        
+        content.sound = UNNotificationSound(named:UNNotificationSoundName(rawValue: "tone1.mp3"))
         content.categoryIdentifier = "your_notification_category_identifier"
         
         let prayerComponents = Calendar.current.dateComponents([.year, .month, .day, .hour, .minute], from: prayerTime)
@@ -92,7 +88,7 @@ class PrayerTimesAll:NSObject, ObservableObject, CLLocationManagerDelegate {
 //            test
 //             Get the current date
 //            let currentDate = Date()
-//            let testDate = currentDate.addingTimeInterval(32) // Add 1min to the current date
+//            let testDate = currentDate.addingTimeInterval(35) // Add 1min to the current date
 //            scheduleNotification(for: testDate, with: "test")
         }
     }
@@ -117,7 +113,7 @@ class PrayerTimesAll:NSObject, ObservableObject, CLLocationManagerDelegate {
         locationManager.desiredAccuracy = kCLLocationAccuracyKilometer
         locationManager.requestWhenInUseAuthorization()
         UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .sound, .badge]) { granted, error in
-            if let error = error {
+            if error != nil {
                 print("error sending notification")
             }
             else if granted {
@@ -144,7 +140,7 @@ class PrayerTimesAll:NSObject, ObservableObject, CLLocationManagerDelegate {
         
         let components = Calendar.current.dateComponents([.year, .month, .day], from: location.timestamp)
         var prayerTimes = [PrayerTimes(coordinates: coordinates, date: components, calculationParameters: params)]
-        var currentPrayers = PrayerTimes(coordinates: coordinates, date: components, calculationParameters: params)
+        let currentPrayers = PrayerTimes(coordinates: coordinates, date: components, calculationParameters: params)
         if let nextDayDate = Calendar.current.date(byAdding: .day, value: 1, to: location.timestamp){
             let componentsNext = Calendar.current.dateComponents([.year, .month, .day], from: nextDayDate)
             prayerTimes.append(PrayerTimes(coordinates: coordinates, date: componentsNext, calculationParameters: params))

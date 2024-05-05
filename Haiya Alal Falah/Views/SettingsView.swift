@@ -51,9 +51,8 @@ struct SettingsView: View {
                     .font(.system(size: 22))
             }
             Picker("Options", selection: $selectedSound) {
-                        Text("Azan").tag("Azan")
+                        Text("Full Azan").tag("Azan")
                         Text("Haiya Alal Falah").tag("Iqamah")
-                        Text("Beep").tag("Beep")
             }
             .onChange(of: selectedSound){ _ in
                 prayerClass.saveSoundToUserDefaults(selectedSound)

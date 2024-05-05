@@ -24,6 +24,12 @@ class AppDelegate: NSObject, UIApplicationDelegate, UNUserNotificationCenterDele
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         UNUserNotificationCenter.current().delegate = self
+        do {
+            try AVAudioSession.sharedInstance().setCategory(.playback)
+            try AVAudioSession.sharedInstance().setActive(true)
+        } catch {
+            print("Failed to configure audio session: \(error)")
+        }
         return true
     }
     
@@ -37,6 +43,18 @@ class AppDelegate: NSObject, UIApplicationDelegate, UNUserNotificationCenterDele
             }
         }
         completionHandler()
+    }
+    
+    // Handle notification when the app is in the foreground
+    func userNotificationCenter(_ center: UNUserNotificationCenter, willPresent notification: UNNotification, withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
+        // Display the notification when the app is in the foreground
+        completionHandler([.banner, .sound, .badge])
+        if notification.request.content.categoryIdentifier == "your_notification_category_identifier" {
+            let sound_type = UserDefaults.standard.string(forKey: "SavedNotificationSound") ?? "Azan"
+            if(sound_type == "Azan"){
+                playCustomSound()
+            }
+        }
     }
     
     func playCustomSound() {

@@ -17,7 +17,7 @@ struct AthanView: View {
                     Color("bg")
                         .ignoresSafeArea()
                     ScrollView{
-                        if let error = prayerClass.error {
+                        if prayerClass.error != nil {
                             VStack{}
                             .onAppear{
                                 isPresented = true
