@@ -11,11 +11,19 @@ struct AthanView: View {
     @ObservedObject var prayerClass:PrayerTimesAll
     @State private var isPresented = false
     @State private var isShowSettings = false
+    @Environment(\.colorScheme) var colorScheme
     var body: some View {
             NavigationView{
                 ZStack{
-                    Color(.init())
-                        .ignoresSafeArea()
+                    if colorScheme == .dark {
+                        // For dark mode, use dark green color
+                        Color(.sRGB, red: 0, green: 0.1, blue: 0)
+                            .ignoresSafeArea()
+                    } else {
+                        // For light mode, use light silver color
+                        Color(.sRGB, red: 0.97, green: 0.97, blue: 1)
+                            .ignoresSafeArea()
+                    }
                     ScrollView{
                         if prayerClass.error != nil {
                             VStack{}
@@ -43,21 +51,18 @@ struct AthanView: View {
                             }
                     .padding(.top)
                     .fullScreenCover(isPresented: $isPresented, content: { LocationNotFoundView() })
-                    
                     .onAppear{
                         prayerClass.startUpdatingLocation()
                     }
                     .onDisappear{
                         prayerClass.stopUpdatingLocation()
-                          }
-                       }
-                
                     }
-          
                 }
-              
             }
+        }
+              
+    }
 
 #Preview {
-    AthanView(prayerClass: PrayerTimesAll()).preferredColorScheme(.light)
+    AthanView(prayerClass: PrayerTimesAll()).preferredColorScheme(.dark)
 }
