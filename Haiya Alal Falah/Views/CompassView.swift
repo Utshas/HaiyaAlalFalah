@@ -92,8 +92,8 @@ struct CompassView: View {
         // Convert radians to degrees
         let degreesToMecca = angleToMecca * 180 / .pi
         // Adjust the angle based on the current heading
-        let headingToMecca = 360 - (degreesToMecca - currentHeading)
-        return -headingToMecca
+        let headingToMecca = degreesToMecca - currentHeading
+        return headingToMecca
     }
 }
 
