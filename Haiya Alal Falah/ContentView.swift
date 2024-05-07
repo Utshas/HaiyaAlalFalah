@@ -8,15 +8,26 @@
 import SwiftUI
 
 struct ContentView: View {
+    @Environment(\.colorScheme) var colorScheme
     var body: some View {
-        VStack {
-            TabBar()
+        ZStack{
+            if colorScheme == .dark {
+                // For dark mode, use dark green color
+                Color(.sRGB, red: 0, green: 0.1, blue: 0)
+                    .ignoresSafeArea()
+            } else {
+                // For light mode, use light silver color
+                Color(.sRGB, red: 0.97, green: 0.97, blue: 1)
+                    .ignoresSafeArea()
+            }
+            VStack {
+                TabBar()
+            }.padding()
         }
-        .padding()
-        .edgesIgnoringSafeArea(.top)
+        .edgesIgnoringSafeArea(.all)
     }
 }
 
 #Preview {
-    ContentView().preferredColorScheme(.light)
+    ContentView().preferredColorScheme(.dark)
 }
