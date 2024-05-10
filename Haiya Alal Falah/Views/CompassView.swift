@@ -87,15 +87,15 @@ struct CompassView: View {
         let meccaLongitude = 39.8262
         
         // Coordinates of the current location (you can get these from locationManagerDelegate)
-        let currentLatitude = Context.shared.lattitude
-        let currentLongitude = Context.shared.longitude
+        let currentLatitude = Context.shared.lattitude//23.8103
+        let currentLongitude =  Context.shared.longitude//90.4125
         
         // Calculate the angle between current location and Mecca using Haversine formula
         let angleToMecca = calculateBearingBetweenPoints(
-            fromLatitude: currentLatitude,
-            fromLongitude: currentLongitude,
-            toLatitude: meccaLatitude,
-            toLongitude: meccaLongitude
+            fromLatitude: degreesToRadians(currentLatitude),
+            fromLongitude: degreesToRadians(currentLongitude),
+            toLatitude: degreesToRadians(meccaLatitude),
+            toLongitude: degreesToRadians(meccaLongitude)
         )
         
         // Adjust the angle based on the current heading
@@ -109,6 +109,10 @@ struct CompassView: View {
         let x = cos(fromLatitude) * sin(toLatitude) - sin(fromLatitude) * cos(toLatitude) * cos(deltaLongitude)
         let bearing = atan2(y, x)
         return (bearing * 180 / .pi + 360).truncatingRemainder(dividingBy: 360)
+    }
+    
+    func degreesToRadians(_ degrees: Double) -> Double {
+        return degrees * .pi / 180.0
     }
 }
 
