@@ -11,6 +11,7 @@ import CoreLocation
 struct CompassView: View {
     @StateObject private var locationManagerDelegate = LocationManagerDelegate()
     @State private var heading: Double = 0
+    @State private var angleToMecca: Double = 0
     @Environment(\.colorScheme) var colorScheme
     var body: some View {
         ZStack{
@@ -49,7 +50,7 @@ struct CompassView: View {
                         .padding()
                         .foregroundStyle(.orange)
                     
-                    Text("Rotation : \(Int(heading))°")
+                    Text("Rotation : \(Int(heading))° \(Int(angleToMecca))°")
                         .font(.system(size: 14))
                         .bold()
                         .foregroundStyle(.orange)
@@ -75,25 +76,39 @@ struct CompassView: View {
         .onChange(of: locationManagerDelegate.heading) { newHeading in
             heading = newHeading
         }
+        .onChange(of: locationManagerDelegate.heading) { newHeading in
+            angleToMecca = calculateHeadingToMecca(currentHeading: newHeading)
+        }
     }
     
     private func calculateHeadingToMecca(currentHeading: Double) -> Double {
         // Coordinates of Mecca
         let meccaLatitude = 21.4225
         let meccaLongitude = 39.8262
+        
+        // Coordinates of the current location (you can get these from locationManagerDelegate)
         let currentLatitude = Context.shared.lattitude
         let currentLongitude = Context.shared.longitude
         
-        // Calculate the angle between current location and Mecca
-        let deltaLongitude = meccaLongitude - currentLongitude
-        let y = sin(deltaLongitude) * cos(meccaLatitude)
-        let x = cos(currentLatitude) * sin(meccaLatitude) - sin(currentLatitude) * cos(meccaLatitude) * cos(deltaLongitude)
-        let angleToMecca = atan2(y, x)
-        // Convert radians to degrees
-        let degreesToMecca = angleToMecca * 180 / .pi
+        // Calculate the angle between current location and Mecca using Haversine formula
+        let angleToMecca = calculateBearingBetweenPoints(
+            fromLatitude: currentLatitude,
+            fromLongitude: currentLongitude,
+            toLatitude: meccaLatitude,
+            toLongitude: meccaLongitude
+        )
+        
         // Adjust the angle based on the current heading
-        let headingToMecca = degreesToMecca - currentHeading
+        let headingToMecca = angleToMecca - currentHeading
         return headingToMecca
+    }
+    
+    func calculateBearingBetweenPoints(fromLatitude: Double, fromLongitude: Double, toLatitude: Double, toLongitude: Double ) -> Double {
+        let deltaLongitude = toLongitude - fromLongitude
+        let y = sin(deltaLongitude) * cos(toLatitude)
+        let x = cos(fromLatitude) * sin(toLatitude) - sin(fromLatitude) * cos(toLatitude) * cos(deltaLongitude)
+        let bearing = atan2(y, x)
+        return (bearing * 180 / .pi + 360).truncatingRemainder(dividingBy: 360)
     }
 }
 
