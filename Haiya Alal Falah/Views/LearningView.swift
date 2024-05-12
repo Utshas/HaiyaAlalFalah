@@ -37,10 +37,10 @@ struct LearningView: View {
                 Image(systemName: "book.fill").font(.system(size: 90))
                     .bold().padding(.bottom,50)
                 ScrollView{
-                    Text(Context.shared.motivational_ayats[randomIndex][0]).font(.system(size: 24))
+                    Text(Context.shared.motivational_ayats[randomIndex][0]).font(.system(size: 22))
                         .padding()
                         .foregroundStyle(.orange)
-                    Text(Context.shared.motivational_ayats[randomIndex][1]).font(.system(size: 24))
+                    Text(Context.shared.motivational_ayats[randomIndex][1]).font(.system(size: 21))
                         .padding()
                     Text("It's a product of BIENG HALAL. Please pray for us. Share this app with others and Give us a feedback on Appstore.")
                         .padding()

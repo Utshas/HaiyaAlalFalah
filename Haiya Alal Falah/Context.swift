@@ -21,6 +21,8 @@ class Context :NSObject{
         ["يَا أَيُّهَا الَّذِينَ آمَنُوا اسْتَعِينُوا بِالصَّبْرِ وَالصَّلَاةِ ۚ إِنَّ اللَّهَ مَعَ الصَّابِرِينَ","O you who have believed, seek help through patience and prayer. Indeed, Allah is with the patient. [Quran 2:153]"],
         ["قَدْ أَفْلَحَ الْمُؤْمِنُونَ ۝ الَّذِينَ هُمْ فِي صَلَاتِهِمْ خَاشِعُونَ", "Successful indeed are the believers. Those who offer their prayers with all solemnity and submissiveness. [Surah Al-A'raf: 14-15]"],
         ["اِنَّ الصَّلٰوةَ كَانَتۡ عَلَى الۡمُؤۡمِنِيۡنَ كِتٰبًا مَّوۡقُوۡتًا‏","Indeed, the prayer is obligatory upon the believers at prescribed times. [Surah An-Nisa: 103]"],
-        ["فَوَيْلٌ لِّلْمُصَلِّينَ ۙ الَّذِينَ هُمْ عَن صَلَاتِهِمْ سَاهُونَ ۙ الَّذِينَ هُمْ يُرَاءُونَ","So troubles to those who pray [But] who are heedless of their prayer - Those who make show [of their deeds].[sura maun: 4-6]"]
+        ["فَوَيْلٌ لِّلْمُصَلِّينَ ۙ الَّذِينَ هُمْ عَن صَلَاتِهِمْ سَاهُونَ ۙ الَّذِينَ هُمْ يُرَاءُونَ","So troubles to those who pray [But] who are heedless of their prayer - Those who make show [of their deeds].[sura maun: 4-6]"],
+        ["يٰٓاَيُّهَا الَّذِيۡنَ اٰمَنُوا اسۡتَعِيۡنُوۡا بِالصَّبۡرِ وَالصَّلٰوةِ ؕ اِنَّ اللّٰهَ مَعَ الصّٰبِرِيۡنَ‏ ","O believers! Seek comfort in patience and prayer. Allah is truly with those who are patient. [Sura Baqarah: 153]"],
+        ["قُلْ لِّـعِبَادِىَ الَّذِيۡنَ اٰمَنُوۡا يُقِيۡمُوا الصَّلٰوةَ وَيُنۡفِقُوۡا مِمَّا رَزَقۡنٰهُمۡ سِرًّا وَّعَلَانِيَةً مِّنۡ قَبۡلِ اَنۡ يَّاۡتِىَ يَوۡمٌ لَّا بَيۡعٌ فِيۡهِ وَلَا خِلٰلٌ‏ ","Tell My believing servants to establish prayer and donate from what We have provided for them—openly and secretly—before the arrival of a Day in which there'll be no ransom or friendly connections. [Sura Ibrahim: 31]"]
     ]
 }
