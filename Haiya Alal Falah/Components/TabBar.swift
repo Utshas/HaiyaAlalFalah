@@ -33,6 +33,14 @@ struct TabBar: View {
                                    Text("Settings")
                                }
                                .tag(2)
+            
+
+                        LearningView()
+                            .tabItem {
+                                Image(systemName: "book.pages")
+                                Text("Motivations")
+                            }
+                            .tag(3)
                        }
         .accentColor(.orange)
         }

@@ -29,6 +29,7 @@
 		B188CA112BE6245700EE641B /* tone1.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = B188CA102BE6245700EE641B /* tone1.mp3 */; };
 		B18D70FC2BE263410018F443 /* Context.swift in Sources */ = {isa = PBXBuildFile; fileRef = B18D70FB2BE263410018F443 /* Context.swift */; };
 		B19DB7282BDE910500347457 /* LocationManagerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B19DB7272BDE910500347457 /* LocationManagerDelegate.swift */; };
+		B1B374652BF09B7800D3766B /* LearningView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1B374642BF09B7800D3766B /* LearningView.swift */; };
 		B1F615B52BD516AF00BDE65F /* CompassView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1F615B42BD516AF00BDE65F /* CompassView.swift */; };
 /* End PBXBuildFile section */
 
@@ -75,6 +76,7 @@
 		B188CA102BE6245700EE641B /* tone1.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = tone1.mp3; sourceTree = "<group>"; };
 		B18D70FB2BE263410018F443 /* Context.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Context.swift; sourceTree = "<group>"; };
 		B19DB7272BDE910500347457 /* LocationManagerDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManagerDelegate.swift; sourceTree = "<group>"; };
+		B1B374642BF09B7800D3766B /* LearningView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LearningView.swift; sourceTree = "<group>"; };
 		B1F615B42BD516AF00BDE65F /* CompassView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompassView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -111,6 +113,7 @@
 				B169A1582BB150390068CB65 /* AthanHome.swift */,
 				B1F615B42BD516AF00BDE65F /* CompassView.swift */,
 				B13FF1102BDFC9D6000ACF9F /* SettingsView.swift */,
+				B1B374642BF09B7800D3766B /* LearningView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -354,6 +357,7 @@
 				B17C09FA2BA5511100F8163D /* PrayerTimesAll.swift in Sources */,
 				B1F615B52BD516AF00BDE65F /* CompassView.swift in Sources */,
 				B17C09CC2BA54FF700F8163D /* Haiya_Alal_FalahApp.swift in Sources */,
+				B1B374652BF09B7800D3766B /* LearningView.swift in Sources */,
 				B17C0A022BA56C2B00F8163D /* PrayerTimeView.swift in Sources */,
 				B169A1542BB138450068CB65 /* LocationNotFoundView.swift in Sources */,
 				B17C09FD2BA56B9300F8163D /* TabBar.swift in Sources */,
