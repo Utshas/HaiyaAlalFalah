@@ -129,6 +129,10 @@ class PrayerTimesAll:NSObject, ObservableObject, CLLocationManagerDelegate {
         guard let location = locations.last else {
             return
         }
+        if(Date.timeIntervalSinceReferenceDate - Context.shared.lastUpdatedNotifications < 5*60){
+            return // Stop updating notification within 5 mins
+        }
+        Context.shared.lastUpdatedNotifications = Date.timeIntervalSinceReferenceDate
         let coordinates = Coordinates(latitude: location.coordinate.latitude, longitude: location.coordinate.longitude)
         var params = CalculationMethod.muslimWorldLeague.params
         if let savedValue = UserDefaults.standard.object(forKey: "SavedCalculationMethod") as? String {

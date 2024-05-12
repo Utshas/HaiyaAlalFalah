@@ -11,6 +11,7 @@ class Context :NSObject{
     var city = "world"
     var lattitude = 0.0
     var longitude = 0.0
+    var lastUpdatedNotifications:TimeInterval = 0
     let motivational_ayats = [
         ["حَدَّثَنَا مُحَمَّدُ بْنُ بَشَّارٍ، حَدَّثَنَا غُنْدَرٌ، عَنْ عَبْدِ الرَّحْمَنِ بْنِ مَهْدِيٍّ، عَنْ أَبِي جَعْفَرٍ الرَّازِيِّ، عَنْ جَابِرِ بْنِ عَبْدِ اللَّهِ ـ رضى الله عنهما ـ قَالَ قَالَ رَسُولُ اللَّهِ صلى الله عليه وسلم ' بَيْنَ الرَّجُلِ وَبَيْنَ الشِّرْكِ وَالْكُفْرِ تَرْكُ الصَّلاَةِ '.", "Narrated Jabir bin 'Abdullah: Allah's Messenger (ﷺ) said, 'Between a man and disbelief and paganism is the abandonment of Salah (prayer).' [Sahih Muslim]"],
         ["                        حَدَّثَنَا أَبُو كُرَيْبٍ، حَدَّثَنَا رِشْدِينُ بْنُ سَعْدٍ، عَنْ عَمْرِو بْنِ الْحَارِثِ، عَنْ دَرَّاجٍ، عَنْ أَبِي الْهَيْثَمِ، عَنْ أَبِي سَعِيدٍ، قَالَ:‏‏‏‏ قَالَ رَسُولُ اللَّهِ صَلَّى اللَّهُ عَلَيْهِ وَسَلَّمَ:‏‏‏‏    إِذَا رَأَيْتُمُ الرَّجُلَ يَعْتَادُ الْمَسْجِدَ فَاشْهَدُوا لَهُ بِالْإِيمَانِ، ‏‏‏‏‏‏قَالَ اللَّهُ تَعَالَى:‏‏‏‏ إِنَّمَا يَعْمُرُ مَسَاجِدَ اللَّهِ مَنْ آمَنَ بِاللَّهِ وَالْيَوْمِ الآخِرِ سورة التوبة آية 18   .", "                         Narrated Abu Sa'eed:that the Messenger of Allah (ﷺ) said:   When you see a man frequenting the Masjid, then testify to his faith. Indeed Allah, Most High, said: The Masjid shall be maintained by those who believe in Allah and the Last day (9:18). "],
