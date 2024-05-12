@@ -37,7 +37,7 @@ struct TabBar: View {
 
                         LearningView()
                             .tabItem {
-                                Image(systemName: "book.pages")
+                                Image(systemName: "book")
                                 Text("Motivations")
                             }
                             .tag(3)

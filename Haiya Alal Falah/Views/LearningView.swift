@@ -34,7 +34,7 @@ struct LearningView: View {
                 }
                 Text("Tap on the ayat to change them. You can scroll the text.")
                     .bold().padding(.bottom,50)
-                Image(systemName: "book.pages.fill").font(.system(size: 90))
+                Image(systemName: "book.fill").font(.system(size: 90))
                     .bold().padding(.bottom,50)
                 ScrollView{
                     Text(Context.shared.motivational_ayats[randomIndex][0]).font(.system(size: 24))
@@ -42,6 +42,9 @@ struct LearningView: View {
                         .foregroundStyle(.orange)
                     Text(Context.shared.motivational_ayats[randomIndex][1]).font(.system(size: 24))
                         .padding()
+                    Text("It's a product of BIENG HALAL. Please pray for us. Share this app with others and Give us a feedback on Appstore.")
+                        .padding()
+                        .foregroundStyle(.gray)
                 }
                 Spacer()
             }
