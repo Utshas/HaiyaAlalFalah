@@ -17,6 +17,7 @@ class PrayerTimesAll:NSObject, ObservableObject, CLLocationManagerDelegate {
     @Published var allPrayers: [PrayerTimes?] = []
     @Published var city: String?
     @Published var error: Error?
+    var isTestSet = false
     var notificationSettings: [String: Bool] = [
         "Fazr": true,
         "Zuhr": true,
@@ -36,15 +37,15 @@ class PrayerTimesAll:NSObject, ObservableObject, CLLocationManagerDelegate {
     ]
     
     
-    func scheduleNotification(for prayerTime:Date, with prayerName: String){
+    func scheduleNotification(for prayerTime:Date, with prayerName: String, sound: String = "tone1.mp3"){
         print("setting notification for \(prayerName) on \(prayerTime)")
         let content = UNMutableNotificationContent()
         content.title = prayerName
         content.body = "It's time for \(prayerName)"
-        content.sound = UNNotificationSound(named:UNNotificationSoundName(rawValue: "tone1.mp3"))
-        content.categoryIdentifier = "your_notification_category_identifier"
-        
-        let prayerComponents = Calendar.current.dateComponents([.year, .month, .day, .hour, .minute], from: prayerTime)
+        content.sound = UNNotificationSound(named:UNNotificationSoundName(rawValue: sound))
+        content.categoryIdentifier = "haiya-adhan"+sound
+        content.interruptionLevel = .timeSensitive
+        let prayerComponents = Calendar.current.dateComponents([.year, .month, .day, .hour, .minute, .second], from: prayerTime)
         print(prayerComponents)
         let trigger = UNCalendarNotificationTrigger(dateMatching: prayerComponents, repeats: false)
         let request = UNNotificationRequest(identifier: "HAF"+UUID().uuidString, content: content, trigger: trigger)
@@ -80,16 +81,30 @@ class PrayerTimesAll:NSObject, ObservableObject, CLLocationManagerDelegate {
             for (prayerName, prayerTime) in prayerTimes {
                 if notificationSettings[prayerName] == true{
                     if let prayerTime = prayerTime as Date?{
-                        scheduleNotification(for: prayerTime, with: prayerName)
+                        
+                        let selectedSound = UserDefaults.standard.string(forKey: "SavedNotificationSound") ?? "Azan"
+                        if(selectedSound == "Azan"){
+                            scheduleNotification(for: prayerTime, with: prayerName, sound: "azan1.m4a")
+                            scheduleNotification(for: prayerTime.addingTimeInterval(31), with: prayerName, sound: "azan2.m4a")
+                            scheduleNotification(for: prayerTime.addingTimeInterval(61), with: prayerName, sound: "azan3.m4a")
+                        }else{
+                            scheduleNotification(for: prayerTime, with: prayerName)
+                        }
                     }
                     
                 }
             }
 //            test
 //             Get the current date
-//            let currentDate = Date()
-//            let testDate = currentDate.addingTimeInterval(35) // Add 1min to the current date
-//            scheduleNotification(for: testDate, with: "test")
+//            if(!isTestSet){
+//                let currentDate = Date()
+//                let testDate = currentDate.addingTimeInterval(100) // Add 100s to the current date
+//                scheduleNotification(for: testDate, with: "test1", sound: "azan1.m4a")
+//                scheduleNotification(for: testDate.addingTimeInterval(31), with: "test2", sound:"azan2.m4a")
+//                scheduleNotification(for: testDate.addingTimeInterval(62), with: "test3",sound:"azan3.m4a")
+//                isTestSet = true
+//            }
+            
         }
     }
     
