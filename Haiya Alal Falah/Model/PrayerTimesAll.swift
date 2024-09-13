@@ -18,12 +18,12 @@ class PrayerTimesAll:NSObject, ObservableObject, CLLocationManagerDelegate {
     @Published var city: String?
     @Published var error: Error?
     var isTestSet = false
-    var notificationSettings: [String: Bool] = [
-        "Fazr": true,
-        "Zuhr": true,
-        "Asr": true,
-        "Maghrib": true,
-        "Isha": true,
+    var notificationSettings: [String: String] = [
+        "Fazr": "azan",
+        "Zuhr": "azan",
+        "Asr": "azan",
+        "Maghrib": "azan",
+        "Isha": "azan",
     ]
     
     var calculationMethod: [String: CalculationParameters] = [
@@ -38,7 +38,7 @@ class PrayerTimesAll:NSObject, ObservableObject, CLLocationManagerDelegate {
     
     
     func scheduleNotification(for prayerTime:Date, with prayerName: String, sound: String = "tone1.mp3"){
-        print("setting notification for \(prayerName) on \(prayerTime)")
+//        print("setting notification for \(prayerName) on \(prayerTime)")
         let content = UNMutableNotificationContent()
         content.title = prayerName
         content.body = "It's time for \(prayerName)"
@@ -46,7 +46,7 @@ class PrayerTimesAll:NSObject, ObservableObject, CLLocationManagerDelegate {
         content.categoryIdentifier = "haiya-adhan"+sound
         content.interruptionLevel = .timeSensitive
         let prayerComponents = Calendar.current.dateComponents([.year, .month, .day, .hour, .minute, .second], from: prayerTime)
-        print(prayerComponents)
+//        print(prayerComponents)
         let trigger = UNCalendarNotificationTrigger(dateMatching: prayerComponents, repeats: false)
         let request = UNNotificationRequest(identifier: "HAF"+UUID().uuidString, content: content, trigger: trigger)
         UNUserNotificationCenter.current().add(request) { error in
@@ -58,10 +58,6 @@ class PrayerTimesAll:NSObject, ObservableObject, CLLocationManagerDelegate {
     
     func saveMethodToUserDefaults(_ method: String){
         UserDefaults.standard.set(method, forKey: "SavedCalculationMethod")
-    }
-    
-    func saveSoundToUserDefaults(_ sound: String = "Iqamah"){
-        UserDefaults.standard.set(sound, forKey: "SavedNotificationSound")
     }
     
     func schedulePrayerNotification(){
@@ -79,10 +75,10 @@ class PrayerTimesAll:NSObject, ObservableObject, CLLocationManagerDelegate {
                 ("Isha", allPrayers[i]?.isha)
             ]
             for (prayerName, prayerTime) in prayerTimes {
-                if notificationSettings[prayerName] == true{
+                if notificationSettings[prayerName] == "azan"{
                     if let prayerTime = prayerTime as Date?{
                         
-                        let selectedSound = UserDefaults.standard.string(forKey: "SavedNotificationSound") ?? "Azan"
+                        let selectedSound = UserDefaults.standard.string(forKey: "SavedNotificationSound-\(prayerName)") ?? "Azan"
                         if(selectedSound == "Azan"){
                             scheduleNotification(for: prayerTime, with: prayerName, sound: "azan1.m4a")
                             scheduleNotification(for: prayerTime.addingTimeInterval(31), with: prayerName, sound: "azan2.m4a")
@@ -91,7 +87,6 @@ class PrayerTimesAll:NSObject, ObservableObject, CLLocationManagerDelegate {
                             scheduleNotification(for: prayerTime, with: prayerName)
                         }
                     }
-                    
                 }
             }
 //            test
@@ -108,19 +103,19 @@ class PrayerTimesAll:NSObject, ObservableObject, CLLocationManagerDelegate {
         }
     }
     
-    func updateNotificationSettings(for prayerName: String, sendNotification: Bool){
-        notificationSettings[prayerName] = sendNotification
+    func updateNotificationSettings(for prayerName: String, sendNotification: Bool, notificationType:String){
+        print("prayerName : \(prayerName) , type: \(notificationType)")
+        self.allPrayers = Context.shared.allPrayers
+        notificationSettings[prayerName] = notificationType
         schedulePrayerNotification()
         let defaults = UserDefaults.standard
-        defaults.set(notificationSettings, forKey: "notificationSettings")
-        
+        defaults.set(notificationSettings, forKey: "notificationSettings-\(prayerName)")
     }
     
     override init(){
         super.init()
-        
         let defaults = UserDefaults.standard
-        if let savedSettings = defaults.object(forKey: "notificationSettings") as? [String:Bool]{
+        if let savedSettings = defaults.object(forKey: "notificationSettings") as? [String:String]{
             notificationSettings = savedSettings
             print("settings : \(savedSettings)")
         }
@@ -144,9 +139,9 @@ class PrayerTimesAll:NSObject, ObservableObject, CLLocationManagerDelegate {
         guard let location = locations.last else {
             return
         }
-        if(Date.timeIntervalSinceReferenceDate - Context.shared.lastUpdatedNotifications < 5*60){
-            return // Stop updating notification within 5 mins
-        }
+//        if(Date.timeIntervalSinceReferenceDate - Context.shared.lastUpdatedNotifications < 5*60){
+//            return // Stop updating notification within 5 mins
+//        }
         Context.shared.lastUpdatedNotifications = Date.timeIntervalSinceReferenceDate
         let coordinates = Coordinates(latitude: location.coordinate.latitude, longitude: location.coordinate.longitude)
         var params = CalculationMethod.muslimWorldLeague.params
@@ -172,6 +167,7 @@ class PrayerTimesAll:NSObject, ObservableObject, CLLocationManagerDelegate {
         DispatchQueue.main.async {
             self.prayers = currentPrayers
             self.allPrayers = prayerTimes
+            Context.shared.allPrayers = self.allPrayers
             self.error = nil
             self.schedulePrayerNotification()
         }
@@ -217,5 +213,4 @@ class PrayerTimesAll:NSObject, ObservableObject, CLLocationManagerDelegate {
         formatter.timeZone = TimeZone.current
         return formatter.string(from: prayerTime)
     }
-    
 }

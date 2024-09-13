@@ -49,12 +49,12 @@ class AppDelegate: NSObject, UIApplicationDelegate, UNUserNotificationCenterDele
     func userNotificationCenter(_ center: UNUserNotificationCenter, willPresent notification: UNNotification, withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
         // Display the notification when the app is in the foreground
         completionHandler([.banner, .sound, .badge])
-        if notification.request.content.categoryIdentifier.starts(with: "haiya-adhan") {
-            let sound_type = UserDefaults.standard.string(forKey: "SavedNotificationSound") ?? "Azan"
-            if(sound_type == "Azan"){
-                playCustomSound()
-            }
-        }
+//        if notification.request.content.categoryIdentifier.starts(with: "haiya-adhan") {
+//            let sound_type = UserDefaults.standard.string(forKey: "SavedNotificationSound") ?? "Azan"
+//            if(sound_type == "Azan"){
+//                playCustomSound()
+//            }
+//        }
     }
     
     func playCustomSound() {

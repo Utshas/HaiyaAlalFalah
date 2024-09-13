@@ -16,7 +16,12 @@ struct SettingsView: View {
     private let prayerNames = ["Fazr", "Zuhr", "Asr", "Maghrib", "Isha"]
     private let calculationMethods = ["Moon Sighting Committee","Umm Al Qura","Kuwait","Muslim World League","Karachi","North America","Turkey"]
     @State private var selectedMethod = UserDefaults.standard.string(forKey: "SavedCalculationMethod") ?? "Muslim World League"
-    @State private var selectedSound = UserDefaults.standard.string(forKey: "SavedNotificationSound") ?? "Azan"
+    @State private var fazrSound = UserDefaults.standard.string(forKey: "SavedNotificationSound-Fazr") ?? "Azan"
+    @State private var zuhrSound = UserDefaults.standard.string(forKey: "SavedNotificationSound-Zuhr") ?? "Azan"
+    @State private var asrSound = UserDefaults.standard.string(forKey: "SavedNotificationSound-Asr") ?? "Azan"
+    @State private var maghribSound = UserDefaults.standard.string(forKey: "SavedNotificationSound-Maghrib") ?? "Azan"
+    @State private var ishaSound = UserDefaults.standard.string(forKey: "SavedNotificationSound-Isha") ?? "Azan"
+    @State private var selectedSound:[String] = []
     @Environment(\.colorScheme) var colorScheme
     
     var body: some View {
@@ -61,15 +66,6 @@ struct SettingsView: View {
                         .foregroundStyle(Color.orange)
                         .font(.system(size: 22))
                 }
-                Picker("Options", selection: $selectedSound) {
-                    Text("Full Azan").tag("Azan")
-                    Text("Haiya Alal Falah").tag("Iqamah")
-                }
-                .onChange(of: selectedSound){ _ in
-                    prayerClass.saveSoundToUserDefaults(selectedSound)
-                }
-                .pickerStyle(.segmented)
-                
                 Divider().padding(.bottom)
                 HStack(){
                     Image(uiImage: UIImage(named: "t_icon")!)
@@ -84,19 +80,22 @@ struct SettingsView: View {
                     HStack {
                         Text(prayerNames[key])
                         Spacer()
-                        Toggle("", isOn: Binding(
-                            get: { self.notificationSettingsModel.notificationSettings[prayerNames[key]] ?? false },
-                            set: { newValue in
-                                self.notificationSettingsModel.notificationSettings[prayerNames[key]] = newValue
-                            }
-                        ))
+                        Picker("Options", selection: $selectedSound[key]) {
+                            Text("Full Azan").tag("Azan")
+                            Text("Haiya Alal Falah").tag("Iqamah")
+                            Text("None").tag("None")
+                        }
+                        .onChange(of: selectedSound){ _ in
+                            prayerClass.updateNotificationSettings(for: prayerNames[key], sendNotification: true, notificationType: selectedSound[key])
+                        }
+                        .pickerStyle(.segmented)
                     }
                 }
-                
-                
             }
             .padding()
             .padding(.top,0)
+        }.onAppear(){
+            selectedSound = [fazrSound, zuhrSound, asrSound, maghribSound, ishaSound]
         }
     }
     struct CustomPickerRow: View {
