@@ -7,6 +7,11 @@
 
 import Foundation
 import Adhan
+enum PrayerCall: String {
+    case azan = "Azan"
+    case iqamah = "Iqamah"
+    case none = "None"
+}
 class Context :NSObject{
     static let shared = Context()
     var city = "world"

@@ -19,11 +19,11 @@ class PrayerTimesAll:NSObject, ObservableObject, CLLocationManagerDelegate {
     @Published var error: Error?
     var isTestSet = false
     var notificationSettings: [String: String] = [
-        "Fazr": "azan",
-        "Zuhr": "azan",
-        "Asr": "azan",
-        "Maghrib": "azan",
-        "Isha": "azan",
+        "Fazr": PrayerCall.azan.rawValue,
+        "Zuhr": PrayerCall.azan.rawValue,
+        "Asr": PrayerCall.azan.rawValue,
+        "Maghrib": PrayerCall.azan.rawValue,
+        "Isha": PrayerCall.azan.rawValue,
     ]
     
     var calculationMethod: [String: CalculationParameters] = [
@@ -33,12 +33,15 @@ class PrayerTimesAll:NSObject, ObservableObject, CLLocationManagerDelegate {
         "Kuwait": CalculationMethod.kuwait.params,
         "Karachi": CalculationMethod.karachi.params,
         "North America": CalculationMethod.northAmerica.params,
-        "Turkey": CalculationMethod.turkey.params
+        "Turkey": CalculationMethod.turkey.params,
+        "Egyptian": CalculationMethod.egyptian.params,
+        "Dubai": CalculationMethod.dubai.params,
+        "Singapore": CalculationMethod.singapore.params,
+        "Qatar": CalculationMethod.qatar.params
     ]
     
     
     func scheduleNotification(for prayerTime:Date, with prayerName: String, sound: String = "tone1.mp3"){
-//        print("setting notification for \(prayerName) on \(prayerTime)")
         let content = UNMutableNotificationContent()
         content.title = prayerName
         content.body = "It's time for \(prayerName)"
@@ -46,7 +49,6 @@ class PrayerTimesAll:NSObject, ObservableObject, CLLocationManagerDelegate {
         content.categoryIdentifier = "haiya-adhan"+sound
         content.interruptionLevel = .timeSensitive
         let prayerComponents = Calendar.current.dateComponents([.year, .month, .day, .hour, .minute, .second], from: prayerTime)
-//        print(prayerComponents)
         let trigger = UNCalendarNotificationTrigger(dateMatching: prayerComponents, repeats: false)
         let request = UNNotificationRequest(identifier: "HAF"+UUID().uuidString, content: content, trigger: trigger)
         UNUserNotificationCenter.current().add(request) { error in
@@ -75,15 +77,15 @@ class PrayerTimesAll:NSObject, ObservableObject, CLLocationManagerDelegate {
                 ("Isha", allPrayers[i]?.isha)
             ]
             for (prayerName, prayerTime) in prayerTimes {
-                if notificationSettings[prayerName] != "none"{
+                if notificationSettings[prayerName] != PrayerCall.none.rawValue{
                     if let prayerTime = prayerTime as Date?{
                         
                         let selectedSound = UserDefaults.standard.string(forKey: "notificationSettings-\(prayerName)") ?? "Azan"
-                        if(selectedSound == "Azan"){
+                        if(selectedSound == PrayerCall.azan.rawValue){
                             scheduleNotification(for: prayerTime, with: prayerName, sound: "azan1.m4a")
                             scheduleNotification(for: prayerTime.addingTimeInterval(31), with: prayerName, sound: "azan2.m4a")
                             scheduleNotification(for: prayerTime.addingTimeInterval(61), with: prayerName, sound: "azan3.m4a")
-                        }else if(selectedSound == "Iqamah"){
+                        }else if(selectedSound == PrayerCall.iqamah.rawValue){
                             scheduleNotification(for: prayerTime.addingTimeInterval(61), with: prayerName, sound: "azan.mp3")
                         }
                         else{
@@ -120,23 +122,18 @@ class PrayerTimesAll:NSObject, ObservableObject, CLLocationManagerDelegate {
         let defaults = UserDefaults.standard
         if let savedSettingsFazr = defaults.object(forKey: "notificationSettings-Fazr") as? String{
             notificationSettings["Fazr"] = savedSettingsFazr
-            print("settings1 : \(savedSettingsFazr)")
         }
         if let savedSettingsZuhr = defaults.object(forKey: "notificationSettings-Zuhr") as? String{
             notificationSettings["Zuhr"] = savedSettingsZuhr
-            print("settings2 : \(savedSettingsZuhr)")
         }
         if let savedSettingsAsr = defaults.object(forKey: "notificationSettings-Asr") as? String{
             notificationSettings["Asr"] = savedSettingsAsr
-            print("settings3 : \(savedSettingsAsr)")
         }
         if let savedSettingsMaghrib = defaults.object(forKey: "notificationSettings-Maghrib") as? String{
             notificationSettings["Maghrib"] = savedSettingsMaghrib
-            print("settings4 : \(savedSettingsMaghrib)")
         }
         if let savedSettingsIsha = defaults.object(forKey: "notificationSettings-Isha") as? String{
             notificationSettings["Isha"] = savedSettingsIsha
-            print("settings5 : \(savedSettingsIsha)")
         }
         locationManager.delegate = self
         locationManager.desiredAccuracy = kCLLocationAccuracyKilometer

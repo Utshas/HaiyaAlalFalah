@@ -51,14 +51,14 @@ class AppDelegate: NSObject, UIApplicationDelegate, UNUserNotificationCenterDele
         completionHandler([.banner, .sound, .badge])
 //        if notification.request.content.categoryIdentifier.starts(with: "haiya-adhan") {
 //            let sound_type = UserDefaults.standard.string(forKey: "SavedNotificationSound") ?? "Azan"
-//            if(sound_type == "Azan"){
+//            if(sound_type == PrayerCall.azan.rawValue){
 //                playCustomSound()
 //            }
 //        }
     }
     
     func playCustomSound() {
-        guard let soundURL = Bundle.main.url(forResource: "azan", withExtension: "mp3") else {
+        guard let soundURL = Bundle.main.url(forResource: PrayerCall.azan.rawValue, withExtension: "mp3") else {
             print("Custom sound file not found.")
             return
         }
