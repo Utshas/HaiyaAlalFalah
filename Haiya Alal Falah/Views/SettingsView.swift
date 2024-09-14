@@ -56,7 +56,9 @@ struct SettingsView: View {
                     prayerClass.saveMethodToUserDefaults(selectedMethod)
                 }
                 .pickerStyle(.wheel)
+                Spacer()
                 Divider().padding(.bottom)
+                Spacer()
                 HStack(){
                     Image(uiImage: UIImage(named: "t_icon")!)
                         .resizable()
@@ -79,8 +81,10 @@ struct SettingsView: View {
                             prayerClass.updateNotificationSettings(for: prayerNames[key], sendNotification: true, notificationType: selectedSound[key])
                         }
                         .pickerStyle(.segmented)
-                    }
+                    }.padding(.bottom,10)
                 }
+                
+                Spacer()
             }
             .padding()
             .padding(.top,0)
