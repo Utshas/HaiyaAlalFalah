@@ -33,7 +33,7 @@ struct SettingsView: View {
                     .ignoresSafeArea()
             } else {
                 // For light mode, use light silver color
-                Color(.sRGB, red: 0.97, green: 0.97, blue: 1)
+                Color(.sRGB, red: 0.97, green: 0.96, blue: 1)
                     .ignoresSafeArea()
             }
             VStack(alignment: .leading) {
@@ -56,7 +56,6 @@ struct SettingsView: View {
                     prayerClass.saveMethodToUserDefaults(selectedMethod)
                 }
                 .pickerStyle(.wheel)
-                
                 Divider().padding(.bottom)
                 HStack(){
                     Image(uiImage: UIImage(named: "t_icon")!)
@@ -64,16 +63,6 @@ struct SettingsView: View {
                         .frame(width: 40, height: 50)
                         .padding(.top, -10)
                     Text("Notification Type").fontWeight(.bold)
-                        .foregroundStyle(Color.orange)
-                        .font(.system(size: 22))
-                }
-                Divider().padding(.bottom)
-                HStack(){
-                    Image(uiImage: UIImage(named: "t_icon")!)
-                        .resizable()
-                        .frame(width: 40, height: 50)
-                        .padding(.top, -10)
-                    Text("Notification On/Off").fontWeight(.bold)
                         .foregroundStyle(Color.orange)
                         .font(.system(size: 22))
                 }
