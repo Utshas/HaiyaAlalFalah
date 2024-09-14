@@ -14,14 +14,14 @@ struct SettingsView: View {
     @StateObject var notificationSettingsModel = NotificationSettingsModel()
     @State private var switchStates = [false, false, false, false, false]
     private let prayerNames = ["Fazr", "Zuhr", "Asr", "Maghrib", "Isha"]
-    private let calculationMethods = ["Moon Sighting Committee","Umm Al Qura","Kuwait","Muslim World League","Karachi","North America","Turkey"]
+    private let calculationMethods = ["Moon Sighting Committee","Umm Al Qura","Kuwait","Muslim World League","Karachi","North America","Turkey", "Egyptian", "Singapore", "Dubai", "Qatar"]
     @State private var selectedMethod = UserDefaults.standard.string(forKey: "SavedCalculationMethod") ?? "Muslim World League"
     @State private var selectedSound:[String] = [
-        UserDefaults.standard.string(forKey: "notificationSettings-Fazr") ?? "Azan",
-        UserDefaults.standard.string(forKey: "notificationSettings-Zuhr") ?? "Azan",
-        UserDefaults.standard.string(forKey: "notificationSettings-Asr") ?? "Azan",
-        UserDefaults.standard.string(forKey: "notificationSettings-Maghrib") ?? "Azan",
-        UserDefaults.standard.string(forKey: "notificationSettings-Isha") ?? "Azan"
+        UserDefaults.standard.string(forKey: "notificationSettings-Fazr") ?? PrayerCall.azan.rawValue,
+        UserDefaults.standard.string(forKey: "notificationSettings-Zuhr") ?? PrayerCall.azan.rawValue,
+        UserDefaults.standard.string(forKey: "notificationSettings-Asr") ?? PrayerCall.azan.rawValue,
+        UserDefaults.standard.string(forKey: "notificationSettings-Maghrib") ?? PrayerCall.azan.rawValue,
+        UserDefaults.standard.string(forKey: "notificationSettings-Isha") ?? PrayerCall.azan.rawValue
     ]
     @Environment(\.colorScheme) var colorScheme
     
@@ -29,14 +29,15 @@ struct SettingsView: View {
         ZStack{
             if colorScheme == .dark {
                 // For dark mode, use dark green color
-                Color(.sRGB, red: 0, green: 0.1, blue: 0)
+                Color(.sRGB, red: 0, green: 0.11, blue: 0)
                     .ignoresSafeArea()
             } else {
                 // For light mode, use light silver color
-                Color(.sRGB, red: 0.97, green: 0.96, blue: 1)
+                Color(.sRGB, red: 0.98, green: 0.95, blue: 1)
                     .ignoresSafeArea()
             }
             VStack(alignment: .leading) {
+                Spacer()
                 HStack(){
                     Image(uiImage: UIImage(named: "t_icon")!)
                         .resizable()
@@ -63,25 +64,27 @@ struct SettingsView: View {
                     Image(uiImage: UIImage(named: "t_icon")!)
                         .resizable()
                         .frame(width: 40, height: 50)
-                        .padding(.top, -10)
+                        .padding(.top, -20)
                     Text("Notification Type").fontWeight(.bold)
                         .foregroundStyle(Color.orange)
                         .font(.system(size: 22))
+                        .padding(.bottom,20)
                 }
-                ForEach(0..<prayerNames.count){ key in
+                ForEach(0..<5){ key in
                     HStack {
-                        Text(prayerNames[key])
+                        Text(prayerNames[key]).bold()
+                            .frame(width: 75, alignment: .leading)
                         Spacer()
                         Picker("Options", selection: $selectedSound[key]) {
-                            Text("Full Azan").tag("Azan")
-                            Text("Haiya Alal Falah").tag("Iqamah")
-                            Text("None").tag("None")
+                            Text("Full Azan").tag(PrayerCall.azan.rawValue)
+                            Text("Short Azan").tag(PrayerCall.iqamah.rawValue)
+                            Text("None").tag(PrayerCall.none.rawValue)
                         }
                         .onChange(of: selectedSound){ _ in
                             prayerClass.updateNotificationSettings(for: prayerNames[key], sendNotification: true, notificationType: selectedSound[key])
                         }
                         .pickerStyle(.segmented)
-                    }.padding(.bottom,10)
+                    }.padding(.bottom,15)
                 }
                 
                 Spacer()
