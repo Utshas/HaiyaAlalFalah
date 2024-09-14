@@ -75,15 +75,18 @@ class PrayerTimesAll:NSObject, ObservableObject, CLLocationManagerDelegate {
                 ("Isha", allPrayers[i]?.isha)
             ]
             for (prayerName, prayerTime) in prayerTimes {
-                if notificationSettings[prayerName] == "azan"{
+                if notificationSettings[prayerName] != "none"{
                     if let prayerTime = prayerTime as Date?{
                         
-                        let selectedSound = UserDefaults.standard.string(forKey: "SavedNotificationSound-\(prayerName)") ?? "Azan"
+                        let selectedSound = UserDefaults.standard.string(forKey: "notificationSettings-\(prayerName)") ?? "Azan"
                         if(selectedSound == "Azan"){
                             scheduleNotification(for: prayerTime, with: prayerName, sound: "azan1.m4a")
                             scheduleNotification(for: prayerTime.addingTimeInterval(31), with: prayerName, sound: "azan2.m4a")
                             scheduleNotification(for: prayerTime.addingTimeInterval(61), with: prayerName, sound: "azan3.m4a")
-                        }else{
+                        }else if(selectedSound == "Iqamah"){
+                            scheduleNotification(for: prayerTime.addingTimeInterval(61), with: prayerName, sound: "azan.mp3")
+                        }
+                        else{
                             scheduleNotification(for: prayerTime, with: prayerName)
                         }
                     }
@@ -104,20 +107,36 @@ class PrayerTimesAll:NSObject, ObservableObject, CLLocationManagerDelegate {
     }
     
     func updateNotificationSettings(for prayerName: String, sendNotification: Bool, notificationType:String){
-        print("prayerName : \(prayerName) , type: \(notificationType)")
         self.allPrayers = Context.shared.allPrayers
         notificationSettings[prayerName] = notificationType
         schedulePrayerNotification()
         let defaults = UserDefaults.standard
-        defaults.set(notificationSettings, forKey: "notificationSettings-\(prayerName)")
+        defaults.set(notificationSettings[prayerName], forKey: "notificationSettings-\(prayerName)")
+        print("prayerName : \(prayerName) , type: \(notificationType) for : notificationSettings-\(prayerName)")
     }
     
     override init(){
         super.init()
         let defaults = UserDefaults.standard
-        if let savedSettings = defaults.object(forKey: "notificationSettings") as? [String:String]{
-            notificationSettings = savedSettings
-            print("settings : \(savedSettings)")
+        if let savedSettingsFazr = defaults.object(forKey: "notificationSettings-Fazr") as? String{
+            notificationSettings["Fazr"] = savedSettingsFazr
+            print("settings1 : \(savedSettingsFazr)")
+        }
+        if let savedSettingsZuhr = defaults.object(forKey: "notificationSettings-Zuhr") as? String{
+            notificationSettings["Zuhr"] = savedSettingsZuhr
+            print("settings2 : \(savedSettingsZuhr)")
+        }
+        if let savedSettingsAsr = defaults.object(forKey: "notificationSettings-Asr") as? String{
+            notificationSettings["Asr"] = savedSettingsAsr
+            print("settings3 : \(savedSettingsAsr)")
+        }
+        if let savedSettingsMaghrib = defaults.object(forKey: "notificationSettings-Maghrib") as? String{
+            notificationSettings["Maghrib"] = savedSettingsMaghrib
+            print("settings4 : \(savedSettingsMaghrib)")
+        }
+        if let savedSettingsIsha = defaults.object(forKey: "notificationSettings-Isha") as? String{
+            notificationSettings["Isha"] = savedSettingsIsha
+            print("settings5 : \(savedSettingsIsha)")
         }
         locationManager.delegate = self
         locationManager.desiredAccuracy = kCLLocationAccuracyKilometer

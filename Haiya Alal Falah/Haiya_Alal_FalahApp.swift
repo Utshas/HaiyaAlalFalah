@@ -37,7 +37,7 @@ class AppDelegate: NSObject, UIApplicationDelegate, UNUserNotificationCenterDele
     func userNotificationCenter(_ center: UNUserNotificationCenter, didReceive response: UNNotificationResponse, withCompletionHandler completionHandler: @escaping () -> Void) {
         
         if response.notification.request.content.categoryIdentifier.starts(with: "haiya-adhan") {
-            let sound_type = UserDefaults.standard.string(forKey: "SavedNotificationSound") ?? "Azan"
+            let sound_type = UserDefaults.standard.string(forKey: "notificationSettings") ?? "Azan"
             if(sound_type == "Azan"){
                 playCustomSound()
             }

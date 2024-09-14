@@ -16,12 +16,13 @@ struct SettingsView: View {
     private let prayerNames = ["Fazr", "Zuhr", "Asr", "Maghrib", "Isha"]
     private let calculationMethods = ["Moon Sighting Committee","Umm Al Qura","Kuwait","Muslim World League","Karachi","North America","Turkey"]
     @State private var selectedMethod = UserDefaults.standard.string(forKey: "SavedCalculationMethod") ?? "Muslim World League"
-    @State private var fazrSound = UserDefaults.standard.string(forKey: "SavedNotificationSound-Fazr") ?? "Azan"
-    @State private var zuhrSound = UserDefaults.standard.string(forKey: "SavedNotificationSound-Zuhr") ?? "Azan"
-    @State private var asrSound = UserDefaults.standard.string(forKey: "SavedNotificationSound-Asr") ?? "Azan"
-    @State private var maghribSound = UserDefaults.standard.string(forKey: "SavedNotificationSound-Maghrib") ?? "Azan"
-    @State private var ishaSound = UserDefaults.standard.string(forKey: "SavedNotificationSound-Isha") ?? "Azan"
-    @State private var selectedSound:[String] = []
+    @State private var selectedSound:[String] = [
+        UserDefaults.standard.string(forKey: "notificationSettings-Fazr") ?? "Azan",
+        UserDefaults.standard.string(forKey: "notificationSettings-Zuhr") ?? "Azan",
+        UserDefaults.standard.string(forKey: "notificationSettings-Asr") ?? "Azan",
+        UserDefaults.standard.string(forKey: "notificationSettings-Maghrib") ?? "Azan",
+        UserDefaults.standard.string(forKey: "notificationSettings-Isha") ?? "Azan"
+    ]
     @Environment(\.colorScheme) var colorScheme
     
     var body: some View {
@@ -94,8 +95,6 @@ struct SettingsView: View {
             }
             .padding()
             .padding(.top,0)
-        }.onAppear(){
-            selectedSound = [fazrSound, zuhrSound, asrSound, maghribSound, ishaSound]
         }
     }
     struct CustomPickerRow: View {
