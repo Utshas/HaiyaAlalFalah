@@ -43,10 +43,12 @@ class MonthlyPrayerTime{
         if forNextMonth{
             let monthNameNextMonth = dateFormatter.monthSymbols[islamicCalendar.component(.month, from: startOfNextIslamicMonth) - 1]
             schedule = getPrayerTimes(for: monthNameNextMonth, from: startOfNextIslamicMonth, to: endOfNextIslamicMonth, params: params)
+//            schedule.append(tempschedule)
         }else{
             let monthNameThisMonth = dateFormatter.monthSymbols[islamicCalendar.component(.month, from: startOfCurrentIslamicMonth) - 1]
             let endOfThisMonth = islamicCalendar.date(byAdding: .day, value: -1, to: startOfNextIslamicMonth)!
             schedule = getPrayerTimes(for: monthNameThisMonth, from: startOfCurrentIslamicMonth, to: endOfThisMonth, params: params)
+//            schedule.append(tempschedule)
         }
 
         return schedule
@@ -60,6 +62,10 @@ class MonthlyPrayerTime{
         while date <= endDate {
             // Convert the Islamic date to the Gregorian equivalent for prayer time calculations
             let gregorianDate = islamicCalendar.date(byAdding: .second, value: 0, to: date) ?? date
+            let formatter = DateFormatter()
+            formatter.dateFormat = "MMMM dd"
+            let formattedDate = formatter.string(from: gregorianDate)
+            
             // Get the Islamic date components (year, month, day) from the Islamic calendar
             let islamicDateComponents = islamicCalendar.dateComponents([.year, .month, .day], from: date)
 
@@ -78,12 +84,13 @@ class MonthlyPrayerTime{
                 print("Maghrib: \(timeFormatter.string(from: prayerTimes.maghrib))")
                 print("Isha: \(timeFormatter.string(from: prayerTimes.isha))")
                 print("-----------")
-                schedule.append(["\(islamicDay) \(monthName)", "\(timeFormatter.string(from: prayerTimes.fajr))", "\(timeFormatter.string(from: prayerTimes.dhuhr))", "\(timeFormatter.string(from: prayerTimes.asr))", "\(timeFormatter.string(from: prayerTimes.maghrib))", "\(timeFormatter.string(from: prayerTimes.isha))"])
+                schedule.append(["\(formattedDate)", "\(islamicDay) \(monthName)", "\(timeFormatter.string(from: prayerTimes.fajr))", "\(timeFormatter.string(from: prayerTimes.dhuhr))", "\(timeFormatter.string(from: prayerTimes.asr))", "\(timeFormatter.string(from: prayerTimes.maghrib))", "\(timeFormatter.string(from: prayerTimes.isha))"])
             }
             
             // Move to the next day
             date = islamicCalendar.date(byAdding: .day, value: 1, to: date)!
         }
+        schedule.remove(at: 0)
         return schedule
     }
 

@@ -3,4 +3,69 @@
    uuid = "C1A8C1A3-5CD9-485F-9DED-8A26C69CD03E"
    type = "1"
    version = "2.0">
+   <Breakpoints>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "83902E4E-AC31-4A75-9374-E03F3ABD7B2A"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Haiya Alal Falah/Model/MonthlyPrayerTime.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "77"
+            endingLineNumber = "77"
+            landmarkName = "getPrayerTimes(for:from:to:params:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "83902E4E-AC31-4A75-9374-E03F3ABD7B2A - e91c80861b96b4ab"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Haiya_Alal_Falah.MonthlyPrayerTime.getPrayerTimes(for: Swift.String, from: Foundation.Date, to: Foundation.Date, params: Adhan.CalculationParameters) -&gt; Swift.Array&lt;Swift.Array&lt;Swift.String&gt;&gt;"
+                  moduleName = "Haiya Alal Falah"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/lmuser/Source/Haiya%20Alal%20Falah/Haiya%20Alal%20Falah/Model/MonthlyPrayerTime.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "77"
+                  endingLineNumber = "77"
+                  offsetFromSymbolStart = "4176">
+               </Location>
+               <Location
+                  uuid = "83902E4E-AC31-4A75-9374-E03F3ABD7B2A - e91c80861b96b4ab"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Haiya_Alal_Falah.MonthlyPrayerTime.getPrayerTimes(for: Swift.String, from: Foundation.Date, to: Foundation.Date, params: Adhan.CalculationParameters) -&gt; Swift.Array&lt;Swift.Array&lt;Swift.String&gt;&gt;"
+                  moduleName = "Haiya Alal Falah"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/lmuser/Source/Haiya%20Alal%20Falah/Haiya%20Alal%20Falah/Model/MonthlyPrayerTime.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "77"
+                  endingLineNumber = "77"
+                  offsetFromSymbolStart = "3372">
+               </Location>
+               <Location
+                  uuid = "83902E4E-AC31-4A75-9374-E03F3ABD7B2A - e91c80861b96b4ab"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Haiya_Alal_Falah.MonthlyPrayerTime.getPrayerTimes(for: Swift.String, from: Foundation.Date, to: Foundation.Date, params: Adhan.CalculationParameters) -&gt; Swift.Array&lt;Swift.Array&lt;Swift.String&gt;&gt;"
+                  moduleName = "Haiya Alal Falah"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/lmuser/Source/Haiya%20Alal%20Falah/Haiya%20Alal%20Falah/Model/MonthlyPrayerTime.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "77"
+                  endingLineNumber = "77"
+                  offsetFromSymbolStart = "3508">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+   </Breakpoints>
 </Bucket>

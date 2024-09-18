@@ -41,6 +41,13 @@ struct TabBar: View {
                                 Text("Motivations")
                             }
                             .tag(3)
+            
+                        CalendarView()
+                            .tabItem {
+                                Image(systemName: "calendar")
+                                Text("Montly Schedule")
+                            }
+                            .tag(4)
                        }
         .accentColor(.orange)
         }
