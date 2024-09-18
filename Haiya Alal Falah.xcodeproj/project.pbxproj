@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		B13FF1112BDFC9D6000ACF9F /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B13FF1102BDFC9D6000ACF9F /* SettingsView.swift */; };
 		B13FF1132BDFCCA4000ACF9F /* NotificationSettingsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B13FF1122BDFCCA4000ACF9F /* NotificationSettingsModel.swift */; };
+		B1456B842C9A5E3D00196B2E /* MonthlyPrayerTime.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1456B832C9A5E3D00196B2E /* MonthlyPrayerTime.swift */; };
+		B1456B8A2C9A67B400196B2E /* CalendarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1456B892C9A67B400196B2E /* CalendarView.swift */; };
 		B169A1522BB134090068CB65 /* AthanTimeTable.swift in Sources */ = {isa = PBXBuildFile; fileRef = B169A1512BB134090068CB65 /* AthanTimeTable.swift */; };
 		B169A1542BB138450068CB65 /* LocationNotFoundView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B169A1532BB138450068CB65 /* LocationNotFoundView.swift */; };
 		B169A1572BB13ECE0068CB65 /* AthanView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B169A1562BB13ECE0068CB65 /* AthanView.swift */; };
@@ -57,6 +59,8 @@
 		B12B0FA92BE65AC300301F86 /* Haiya-Alal-Falah-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "Haiya-Alal-Falah-Info.plist"; sourceTree = SOURCE_ROOT; };
 		B13FF1102BDFC9D6000ACF9F /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		B13FF1122BDFCCA4000ACF9F /* NotificationSettingsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationSettingsModel.swift; sourceTree = "<group>"; };
+		B1456B832C9A5E3D00196B2E /* MonthlyPrayerTime.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonthlyPrayerTime.swift; sourceTree = "<group>"; };
+		B1456B892C9A67B400196B2E /* CalendarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarView.swift; sourceTree = "<group>"; };
 		B169A1512BB134090068CB65 /* AthanTimeTable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AthanTimeTable.swift; sourceTree = "<group>"; };
 		B169A1532BB138450068CB65 /* LocationNotFoundView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationNotFoundView.swift; sourceTree = "<group>"; };
 		B169A1562BB13ECE0068CB65 /* AthanView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AthanView.swift; sourceTree = "<group>"; };
@@ -121,6 +125,7 @@
 				B1F615B42BD516AF00BDE65F /* CompassView.swift */,
 				B13FF1102BDFC9D6000ACF9F /* SettingsView.swift */,
 				B1B374642BF09B7800D3766B /* LearningView.swift */,
+				B1456B892C9A67B400196B2E /* CalendarView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -199,6 +204,7 @@
 			children = (
 				B17C09F92BA5511100F8163D /* PrayerTimesAll.swift */,
 				B13FF1122BDFCCA4000ACF9F /* NotificationSettingsModel.swift */,
+				B1456B832C9A5E3D00196B2E /* MonthlyPrayerTime.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -368,6 +374,7 @@
 				B17C09CE2BA54FF700F8163D /* ContentView.swift in Sources */,
 				B18D70FC2BE263410018F443 /* Context.swift in Sources */,
 				B17C0A042BA57F3500F8163D /* PrayerTimeTableItem.swift in Sources */,
+				B1456B842C9A5E3D00196B2E /* MonthlyPrayerTime.swift in Sources */,
 				B17C09FA2BA5511100F8163D /* PrayerTimesAll.swift in Sources */,
 				B1F615B52BD516AF00BDE65F /* CompassView.swift in Sources */,
 				B17C09CC2BA54FF700F8163D /* Haiya_Alal_FalahApp.swift in Sources */,
@@ -376,6 +383,7 @@
 				B169A1542BB138450068CB65 /* LocationNotFoundView.swift in Sources */,
 				B17C09FD2BA56B9300F8163D /* TabBar.swift in Sources */,
 				B169A1572BB13ECE0068CB65 /* AthanView.swift in Sources */,
+				B1456B8A2C9A67B400196B2E /* CalendarView.swift in Sources */,
 				B169A1592BB150390068CB65 /* AthanHome.swift in Sources */,
 				B19DB7282BDE910500347457 /* LocationManagerDelegate.swift in Sources */,
 				B13FF1112BDFC9D6000ACF9F /* SettingsView.swift in Sources */,
