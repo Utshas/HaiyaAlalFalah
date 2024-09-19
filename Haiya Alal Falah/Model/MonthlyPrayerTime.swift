@@ -13,7 +13,7 @@ class MonthlyPrayerTime{
     let dateFormatter = DateFormatter()
     let gregorianCalendar = Calendar(identifier: .gregorian)
     let timeFormatter = DateFormatter()
-    let coordinates = Coordinates(latitude: Context.shared.lattitude, longitude: Context.shared.longitude)
+    let calendar = Calendar.current
     
     func getPrayerTimesForIslamicMonths(forNextMonth:Bool = false) -> [[String]]{
         var schedule:[[String]] = [[]]
@@ -56,9 +56,13 @@ class MonthlyPrayerTime{
     }
     
     func getPrayerTimes(for monthName: String, from startDate: Date, to endDate: Date, params:CalculationParameters) ->[[String]]{
+        let coordinates = Coordinates(latitude: Context.shared.lattitude, longitude: Context.shared.longitude)
         print("\nPrayer Times for \(monthName):\n")
         var schedule:[[String]] = [[]]
         var date = startDate
+        timeFormatter.timeZone = TimeZone(abbreviation: "UTC")!
+        timeFormatter.timeStyle = .short
+        print("time zone : \(timeFormatter.timeZone)")
         while date <= endDate {
             // Convert the Islamic date to the Gregorian equivalent for prayer time calculations
             let gregorianDate = islamicCalendar.date(byAdding: .second, value: 0, to: date) ?? date
@@ -70,21 +74,18 @@ class MonthlyPrayerTime{
             let islamicDateComponents = islamicCalendar.dateComponents([.year, .month, .day], from: date)
 
             // Convert the Islamic date components to Gregorian date components
-            var gregorianDateComp = DateComponents()
-            gregorianDateComp.year = islamicDateComponents.year
-            gregorianDateComp.month = islamicDateComponents.month
-            gregorianDateComp.day = islamicDateComponents.day
+            var gregorianDateComp = calendar.dateComponents(in: TimeZone(abbreviation: "UTC")!, from: gregorianDate)
             if let prayerTimes = PrayerTimes(coordinates: coordinates, date: gregorianDateComp, calculationParameters: params) {
                 let hijriDate = islamicCalendar.dateComponents([.year, .month, .day], from: date)
                 let islamicDay = hijriDate.day ?? 0
                 print("Date (Hijri): \(islamicDay) \(monthName)")
-                print("Fajr: \(timeFormatter.string(from: prayerTimes.fajr))")
+                print("Fajr: \(timeFormatter.string(from: prayerTimes.fajr)) , \(currentZoneTime(date: prayerTimes.fajr))")
                 print("Dhuhr: \(timeFormatter.string(from: prayerTimes.dhuhr))")
                 print("Asr: \(timeFormatter.string(from: prayerTimes.asr))")
                 print("Maghrib: \(timeFormatter.string(from: prayerTimes.maghrib))")
                 print("Isha: \(timeFormatter.string(from: prayerTimes.isha))")
                 print("-----------")
-                schedule.append(["\(formattedDate)", "\(islamicDay) \(monthName)", "\(timeFormatter.string(from: prayerTimes.fajr))", "\(timeFormatter.string(from: prayerTimes.dhuhr))", "\(timeFormatter.string(from: prayerTimes.asr))", "\(timeFormatter.string(from: prayerTimes.maghrib))", "\(timeFormatter.string(from: prayerTimes.isha))"])
+                schedule.append(["\(formattedDate)", "\(islamicDay) \(monthName)", "\(currentZoneTime(date: prayerTimes.fajr))", "\(currentZoneTime(date: prayerTimes.dhuhr))", "\(currentZoneTime(date: prayerTimes.asr))", "\(currentZoneTime(date: prayerTimes.maghrib))", "\(currentZoneTime(date: prayerTimes.isha))"])
             }
             
             // Move to the next day
@@ -92,6 +93,13 @@ class MonthlyPrayerTime{
         }
         schedule.remove(at: 0)
         return schedule
+    }
+    
+    func currentZoneTime(date: Date) -> String {
+        
+        let localTimeZone = TimeZone.current
+        let secondsFromGMT = localTimeZone.secondsFromGMT(for: date)
+        return timeFormatter.string(from: calendar.date(byAdding: .second, value: secondsFromGMT, to: date) ?? date)
     }
 
 }

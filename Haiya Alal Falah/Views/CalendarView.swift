@@ -50,16 +50,13 @@ struct CalendarView: View {
                             }
                         }
                     }
-                }.onAppear {
-                    printit()
                 }
                 Spacer()
+            }.onAppear{
+            rowDataThisMonth = MonthlyPrayerTime().getPrayerTimesForIslamicMonths()
+            rowDataNextMonth = MonthlyPrayerTime().getPrayerTimesForIslamicMonths(forNextMonth: true)
             }
         }
-    }
-    
-    func printit(){
-        print(rowDataThisMonth)
     }
 }
 
