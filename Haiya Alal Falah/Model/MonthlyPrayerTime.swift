@@ -33,16 +33,18 @@ class MonthlyPrayerTime{
         // Get the start and end of the current Islamic month
         guard let startOfCurrentIslamicMonth = islamicCalendar.date(from: islamicCalendar.dateComponents([.year, .month], from: currentDate)),
               let startOfNextIslamicMonth = islamicCalendar.date(byAdding: .month, value: 1, to: startOfCurrentIslamicMonth),
-              let startOfMonthAfterNext = islamicCalendar.date(byAdding: .month, value: 1, to: startOfNextIslamicMonth),
-              let endOfNextIslamicMonth = islamicCalendar.date(byAdding: .day, value: -1, to: startOfMonthAfterNext) else {
+              let startOfMonthAfterNext = islamicCalendar.date(byAdding: .month, value: 1, to: startOfNextIslamicMonth) else {
             print("Error in calculating Islamic month ranges.")
             return schedule
         }
+
+        // Calculate the end of the next Islamic month by subtracting one day from the start of the month after the next
+        let endOfNextIslamicMonth = islamicCalendar.date(byAdding: .day, value: -1, to: startOfMonthAfterNext)
         
         // Print prayer times for the current Islamic month
         if forNextMonth{
-            let monthNameNextMonth = dateFormatter.monthSymbols[islamicCalendar.component(.month, from: startOfNextIslamicMonth) - 1]
-            schedule = getPrayerTimes(for: monthNameNextMonth, from: startOfNextIslamicMonth, to: endOfNextIslamicMonth, params: params)
+            let monthNameNextMonth = dateFormatter.monthSymbols[islamicCalendar.component(.month, from: startOfNextIslamicMonth)]
+            schedule = getPrayerTimes(for: monthNameNextMonth, from: startOfNextIslamicMonth, to: endOfNextIslamicMonth!, params: params)
 //            schedule.append(tempschedule)
         }else{
             let monthNameThisMonth = dateFormatter.monthSymbols[islamicCalendar.component(.month, from: startOfCurrentIslamicMonth) - 1]
@@ -52,7 +54,6 @@ class MonthlyPrayerTime{
         }
 
         return schedule
-        
     }
     
     func getPrayerTimes(for monthName: String, from startDate: Date, to endDate: Date, params:CalculationParameters) ->[[String]]{
@@ -62,7 +63,6 @@ class MonthlyPrayerTime{
         var date = startDate
         timeFormatter.timeZone = TimeZone(abbreviation: "UTC")!
         timeFormatter.timeStyle = .short
-        print("time zone : \(timeFormatter.timeZone)")
         while date <= endDate {
             // Convert the Islamic date to the Gregorian equivalent for prayer time calculations
             let gregorianDate = islamicCalendar.date(byAdding: .second, value: 0, to: date) ?? date
