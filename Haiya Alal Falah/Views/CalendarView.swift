@@ -9,10 +9,7 @@ import SwiftUI
 
 struct CalendarView: View {
     // Define the grid layout with 6 columns
-    @State private var rowDataThisMonth: [[String]] = MonthlyPrayerTime().getPrayerTimesForIslamicMonths()
-    @State private var rowDataNextMonth: [[String]] = MonthlyPrayerTime().getPrayerTimesForIslamicMonths(forNextMonth: true)
     @State private var rowData:[[String]] = MonthlyPrayerTime().getPrayerTimesForIslamicMonths()
-    @State private var selectedMonth:String = "this"
     let columns = [
         GridItem(.flexible()), GridItem(.flexible()), GridItem(.flexible()),
         GridItem(.flexible()), GridItem(.flexible()), GridItem(.flexible())
@@ -34,19 +31,6 @@ struct CalendarView: View {
                 Text("Monthly Prayer Schedule").fontWeight(.bold)
                     .foregroundStyle(Color.orange)
                     .font(.system(size: 22))
-                Picker("Options", selection: $selectedMonth) {
-                    Text("This Month").tag("this")
-                    Text("Next Month").tag("next")
-                }
-                .onChange(of: selectedMonth){ _ in
-                    if selectedMonth == "this"{
-                        rowData = rowDataThisMonth
-                    }else{
-                        rowData = rowDataNextMonth
-                    }
-                    
-                }
-                .pickerStyle(.segmented)
                 ScrollView {  // Scroll vertically to accommodate all rows
                     VStack {  // Ensure the container expands
                         // Loop through each row
@@ -68,8 +52,7 @@ struct CalendarView: View {
                 }
                 Spacer()
             }.onAppear{
-            rowDataThisMonth = MonthlyPrayerTime().getPrayerTimesForIslamicMonths()
-            rowDataNextMonth = MonthlyPrayerTime().getPrayerTimesForIslamicMonths(forNextMonth: true)
+                rowData = MonthlyPrayerTime().getPrayerTimesForIslamicMonths()
             }
         }
     }
