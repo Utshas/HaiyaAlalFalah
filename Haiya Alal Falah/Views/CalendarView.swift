@@ -35,7 +35,15 @@ struct CalendarView: View {
                     VStack {  // Ensure the container expands
                         // Loop through each row
                         ForEach(0..<rowData.count, id: \.self) { row in
-                            Divider()
+                            if rowData[row][0].contains("TODAY") || (row > 0 && rowData[row-1][0].contains("TODAY")) {
+                                Divider()
+                                    .frame(height: 5) // Thicker divider
+                                    .background(Color.orange) // Different color
+                            } else {
+                                Divider()
+                                    .frame(height: 1) // Regular divider
+                                    .background(Color.white) // Regular color
+                            }
                             Text("\(rowData[row][1]) | \(rowData[row][0])")
                                 .bold()
                                 .padding(.top,12)
