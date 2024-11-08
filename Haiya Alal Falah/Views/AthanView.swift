@@ -26,7 +26,9 @@ struct AthanView: View {
                     }
                     ScrollView{
                         if prayerClass.error != nil {
-                            VStack{}
+                            VStack{
+                                LocationNotFoundView()
+                            }
                             .onAppear{
                                 isPresented = true
                             }
@@ -50,7 +52,6 @@ struct AthanView: View {
                                 }
                             }
                     .padding(.top)
-                    .fullScreenCover(isPresented: $isPresented, content: { LocationNotFoundView() })
                     .onAppear{
                         prayerClass.startUpdatingLocation()
                     }

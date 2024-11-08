@@ -29,7 +29,7 @@ struct LocationNotFoundView: View {
                         .foregroundStyle(.orange)
                         .multilineTextAlignment(.center)
                 }
-                Text("To access the most accurate prayer times instantly through the salah app, you need to allow location access.")
+                Text("To access the most accurate prayer times instantly through the salah app, you need to allow location access. Without getting the correct location, some other features of this app may not work correctly.")
                     .font(.system(size:15))
                     .fontWeight(.light)
                     .multilineTextAlignment(.leading)

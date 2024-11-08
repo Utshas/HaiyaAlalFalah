@@ -193,6 +193,8 @@ class PrayerTimesAll:NSObject, ObservableObject, CLLocationManagerDelegate {
             if let error = error {
                 DispatchQueue.main.async {
                     self.error = error
+                    Context.shared.lattitude = 21.4225
+                    Context.shared.longitude = 39.8262
                 }
             }else if let placemark = placemarks?.first{
                 DispatchQueue.main.async {
@@ -209,6 +211,8 @@ class PrayerTimesAll:NSObject, ObservableObject, CLLocationManagerDelegate {
     func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
         DispatchQueue.main.async {
             self.error = error
+            Context.shared.lattitude = 21.4225
+            Context.shared.longitude = 39.8262
         }
     }
     

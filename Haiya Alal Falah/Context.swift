@@ -15,8 +15,8 @@ enum PrayerCall: String {
 class Context :NSObject{
     static let shared = Context()
     var city = "world"
-    var lattitude = 0.0
-    var longitude = 0.0
+    var lattitude = -200.0
+    var longitude = -200.0
     var lastUpdatedNotifications:TimeInterval = 0
     var allPrayers: [PrayerTimes?] = []
     let motivational_ayats = [
