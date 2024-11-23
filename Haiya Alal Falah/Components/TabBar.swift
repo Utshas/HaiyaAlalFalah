@@ -50,7 +50,9 @@ struct TabBar: View {
                             .tag(4)
                        }
         .tabViewStyle(PageTabViewStyle(indexDisplayMode: .always)) // Enable swiping
-        .indexViewStyle(PageIndexViewStyle(backgroundDisplayMode: .always)) // Optional: Customize the index dots
+        .indexViewStyle(PageIndexViewStyle(backgroundDisplayMode: .always))
+        
+        // Optional: Customize the index dots
                 
         .accentColor(.orange)
         }

@@ -241,4 +241,42 @@ class PrayerTimesAll:NSObject, ObservableObject, CLLocationManagerDelegate {
         formatter.timeZone = TimeZone.current
         return formatter.string(from: prayerTime)
     }
+    
+    func nextFazrPrayer()->Date{
+        let location = CLLocation(latitude: Context.shared.lattitude, longitude: Context.shared.longitude)
+        Context.shared.lastUpdatedNotifications = Date.timeIntervalSinceReferenceDate
+        let coordinates = Coordinates(latitude: location.coordinate.latitude, longitude: location.coordinate.longitude)
+        var params = CalculationMethod.muslimWorldLeague.params
+        if let savedValue = UserDefaults.standard.object(forKey: "SavedCalculationMethod") as? String {
+            print(savedValue)
+            params = calculationMethod[savedValue] ?? CalculationMethod.muslimWorldLeague.params
+        } else {
+            self.saveMethodToUserDefaults("Muslim World League")
+        }
+        var fazr = Date()
+        if let nextDayDate = Calendar.current.date(byAdding: .day, value: 1, to: location.timestamp){
+            let componentsNext = Calendar.current.dateComponents([.year, .month, .day], from: nextDayDate)
+            fazr = PrayerTimes(coordinates: coordinates, date: componentsNext, calculationParameters: params)?.fajr ?? Date()
+        }
+        return fazr
+    }
+    
+    func nextMaghribPrayer()->Date{
+        let location = CLLocation(latitude: Context.shared.lattitude, longitude: Context.shared.longitude)
+        Context.shared.lastUpdatedNotifications = Date.timeIntervalSinceReferenceDate
+        let coordinates = Coordinates(latitude: location.coordinate.latitude, longitude: location.coordinate.longitude)
+        var params = CalculationMethod.muslimWorldLeague.params
+        if let savedValue = UserDefaults.standard.object(forKey: "SavedCalculationMethod") as? String {
+            print(savedValue)
+            params = calculationMethod[savedValue] ?? CalculationMethod.muslimWorldLeague.params
+        } else {
+            self.saveMethodToUserDefaults("Muslim World League")
+        }
+        var maghrib = Date()
+        if let nextDayDate = Calendar.current.date(byAdding: .day, value: 1, to: location.timestamp){
+            let componentsNext = Calendar.current.dateComponents([.year, .month, .day], from: nextDayDate)
+            maghrib = PrayerTimes(coordinates: coordinates, date: componentsNext, calculationParameters: params)?.maghrib ?? Date()
+        }
+        return maghrib
+    }
 }

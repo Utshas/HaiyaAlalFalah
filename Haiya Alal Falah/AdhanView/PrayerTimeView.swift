@@ -68,7 +68,6 @@ struct PrayerTimeView: View {
         dateFormatter.calendar = calendar
         dateFormatter.dateFormat = "yyyy MMM dd"
         return dateFormatter.string(from: calendar.date(from: components) ?? date)
-        
     }
 }
 
