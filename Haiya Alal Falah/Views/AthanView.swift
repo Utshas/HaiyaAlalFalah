@@ -13,7 +13,6 @@ struct AthanView: View {
     @State private var isShowSettings = false
     @Environment(\.colorScheme) var colorScheme
     var body: some View {
-            NavigationView{
                 ZStack{
                     if colorScheme == .dark {
                         // For dark mode, use dark green color
@@ -38,7 +37,7 @@ struct AthanView: View {
                                     PrayerTimeView(prayerName: "\(nextPrayer)", prayerTime: prayers.time(for: nextPrayer), location: prayerClass.city ?? "__")
                                         .frame(maxWidth: .infinity, alignment: .center)
                                 } else {
-                                            PrayerTimeView(prayerName: "Imsak", prayerTime: Date(), location: prayerClass.city ?? "__")
+                                            PrayerTimeView(prayerName: "Qiam", prayerTime: Date(), location: prayerClass.city ?? "__")
                                                 .frame(maxWidth: .infinity, alignment: .center)
                                         }
                                         AthanTimeTable(prayerClass: prayerClass)
@@ -61,9 +60,7 @@ struct AthanView: View {
                 }
             }
         }
-              
-    }
 
 #Preview {
-    AthanView(prayerClass: PrayerTimesAll()).preferredColorScheme(.dark)
+    AthanView(prayerClass: PrayerTimesAll()).preferredColorScheme(.light)
 }
