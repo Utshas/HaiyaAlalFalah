@@ -47,7 +47,6 @@ struct PrayerTimeView: View {
                     Text("\(getFormattedDate(date: currentDate, calendar: hijrCalendar))")
                         .font(.system(size: 15))
                         .fontWeight(.bold)
-                        .foregroundStyle(.white)
                 }
                 .padding(.horizontal)
             }
@@ -74,5 +73,5 @@ struct PrayerTimeView: View {
 }
 
 #Preview {
-    PrayerTimeView(prayerName: "Fazr", prayerTime: Date.now, location: "Dhaka").preferredColorScheme(/*@START_MENU_TOKEN@*/.dark/*@END_MENU_TOKEN@*/)
+    PrayerTimeView(prayerName: "Fazr", prayerTime: Date.now, location: "Dhaka").preferredColorScheme(.light)
 }
