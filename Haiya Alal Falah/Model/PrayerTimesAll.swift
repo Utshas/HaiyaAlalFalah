@@ -179,6 +179,14 @@ class PrayerTimesAll:NSObject, ObservableObject, CLLocationManagerDelegate {
             let componentsPlus2 = Calendar.current.dateComponents([.year, .month, .day], from: plus2Date)
             prayerTimes.append(PrayerTimes(coordinates: coordinates, date: componentsPlus2, calculationParameters: params))
         }
+        if let plus3Date = Calendar.current.date(byAdding: .day, value: 3, to: location.timestamp){
+            let componentsPlus3 = Calendar.current.dateComponents([.year, .month, .day], from: plus3Date)
+            prayerTimes.append(PrayerTimes(coordinates: coordinates, date: componentsPlus3, calculationParameters: params))
+        }
+        if let plus4Date = Calendar.current.date(byAdding: .day, value: 4, to: location.timestamp){
+            let componentsPlus4 = Calendar.current.dateComponents([.year, .month, .day], from: plus4Date)
+            prayerTimes.append(PrayerTimes(coordinates: coordinates, date: componentsPlus4, calculationParameters: params))
+        }
         
         DispatchQueue.main.async {
             self.prayers = currentPrayers
