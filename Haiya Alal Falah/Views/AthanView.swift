@@ -93,7 +93,6 @@ struct AthanView: View {
 
             let sahriString = formatter.string(from: sahri)
             let iftarString = formatter.string(from: iftar)
-
             return "SUHUR: \(sahriString)         IFTAR: \(iftarString)"
     }
 }

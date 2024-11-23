@@ -23,6 +23,7 @@ struct SettingsView: View {
         UserDefaults.standard.string(forKey: "notificationSettings-Maghrib") ?? PrayerCall.azan.rawValue,
         UserDefaults.standard.string(forKey: "notificationSettings-Isha") ?? PrayerCall.azan.rawValue
     ]
+    @State private var selectedMadhab:String = UserDefaults.standard.string(forKey: "madhabSettings") ?? "Shafi"
     @Environment(\.colorScheme) var colorScheme
     
     var body: some View {
@@ -37,6 +38,32 @@ struct SettingsView: View {
                     .ignoresSafeArea()
             }
             VStack(alignment: .leading) {
+                Spacer()
+                HStack(){
+                    Image(uiImage: UIImage(named: "t_icon")!)
+                        .resizable()
+                        .frame(width: 40, height: 50)
+                        .padding(.top, -20)
+                    Text("Madhab Settings").fontWeight(.bold)
+                        .foregroundStyle(Color.orange)
+                        .font(.system(size: 22))
+                        .padding(.bottom,20)
+                }
+                HStack{
+                    Text("Choose a Madhab")
+                    Spacer()
+                    Picker("Options", selection: $selectedMadhab) {
+                        Text("Hanafi").tag("Hanafi")
+                        Text("Shafi & Others").tag("Shafi")
+                    }.onChange(of: selectedMadhab){ _ in
+                        prayerClass.updateMadhabSettings(for: selectedMadhab)
+                    }
+                    .pickerStyle(.menu)
+                }
+                
+                
+                Spacer()
+                Divider().padding(.bottom)
                 Spacer()
                 HStack(){
                     Image(uiImage: UIImage(named: "t_icon")!)
@@ -60,6 +87,7 @@ struct SettingsView: View {
                 Spacer()
                 Divider().padding(.bottom)
                 Spacer()
+                
                 HStack(){
                     Image(uiImage: UIImage(named: "t_icon")!)
                         .resizable()

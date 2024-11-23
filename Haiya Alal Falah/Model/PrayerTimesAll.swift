@@ -61,6 +61,9 @@ class PrayerTimesAll:NSObject, ObservableObject, CLLocationManagerDelegate {
     func saveMethodToUserDefaults(_ method: String){
         UserDefaults.standard.set(method, forKey: "SavedCalculationMethod")
     }
+    func saveMadhabToUserDefaults(_ madhab: String){
+        UserDefaults.standard.set(madhab, forKey: "madhabSettings")
+    }
     
     func schedulePrayerNotification(){
         if allPrayers.isEmpty {
@@ -117,6 +120,14 @@ class PrayerTimesAll:NSObject, ObservableObject, CLLocationManagerDelegate {
         print("prayerName : \(prayerName) , type: \(notificationType) for : notificationSettings-\(prayerName)")
     }
     
+    func updateMadhabSettings(for madhab: String){
+        self.allPrayers = Context.shared.allPrayers
+        schedulePrayerNotification()
+        let defaults = UserDefaults.standard
+        defaults.set(madhab, forKey: "madhabSettings")
+        print(madhab)
+    }
+    
     override init(){
         super.init()
         let defaults = UserDefaults.standard
@@ -160,12 +171,22 @@ class PrayerTimesAll:NSObject, ObservableObject, CLLocationManagerDelegate {
 //        }
         Context.shared.lastUpdatedNotifications = Date.timeIntervalSinceReferenceDate
         let coordinates = Coordinates(latitude: location.coordinate.latitude, longitude: location.coordinate.longitude)
+        
+        // SET CALCULATION METHOD
         var params = CalculationMethod.muslimWorldLeague.params
         if let savedValue = UserDefaults.standard.object(forKey: "SavedCalculationMethod") as? String {
             print(savedValue)
             params = calculationMethod[savedValue] ?? CalculationMethod.muslimWorldLeague.params
         } else {
             self.saveMethodToUserDefaults("Muslim World League")
+        }
+        
+        // SET MADHAB
+        if let savedMadhab = UserDefaults.standard.object(forKey: "madhabSettings") as? String {
+            print(savedMadhab)
+            setMadhab(params: &params, madhab: savedMadhab)
+        } else {
+            self.saveMadhabToUserDefaults("Shafi")
         }
         
         let components = Calendar.current.dateComponents([.year, .month, .day], from: location.timestamp)
@@ -232,6 +253,14 @@ class PrayerTimesAll:NSObject, ObservableObject, CLLocationManagerDelegate {
     func stopUpdatingLocation(){
         locationManager.delegate = self
         locationManager.stopUpdatingLocation()
+    }
+    
+    func setMadhab(params: inout CalculationParameters, madhab: String){
+        if madhab == "Hanafi"{
+            params.madhab = .hanafi
+        }else{
+            params.madhab = .shafi
+        }
     }
     
     func formattedPrayertime(_ prayerTime:Date?)->String{

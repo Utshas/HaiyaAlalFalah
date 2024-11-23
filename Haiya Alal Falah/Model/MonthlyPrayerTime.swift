@@ -23,6 +23,11 @@ class MonthlyPrayerTime{
             print(savedValue)
             params = PrayerTimesAll().calculationMethod[savedValue] ?? CalculationMethod.muslimWorldLeague.params
         }
+        params.madhab = .shafi
+        if let savedMadhab = UserDefaults.standard.object(forKey: "madhabSettings") as? String {
+            print(savedMadhab)
+            PrayerTimesAll().setMadhab(params: &params, madhab: savedMadhab)
+        }
         
         // Date formatter to display readable dates
         dateFormatter.dateStyle = .medium
