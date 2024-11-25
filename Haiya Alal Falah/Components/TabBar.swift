@@ -9,6 +9,7 @@ import SwiftUI
 
 struct TabBar: View {
     @State private var selectedTab = 0
+    private let tabCount = 5
 
     var body: some View {
         TabView(selection: $selectedTab) {
@@ -49,11 +50,22 @@ struct TabBar: View {
                             }
                             .tag(4)
                        }
-        .tabViewStyle(PageTabViewStyle(indexDisplayMode: .always)) // Enable swiping
-        .indexViewStyle(PageIndexViewStyle(backgroundDisplayMode: .always))
-        
-        // Optional: Customize the index dots
-                
+        .tabViewStyle(DefaultTabViewStyle())
+        .gesture(
+            DragGesture()
+                .onEnded { value in
+                    let horizontalAmount = value.translation.width
+                    if horizontalAmount < -40 { // Swipe left
+                        if selectedTab < tabCount - 1 {
+                            selectedTab += 1
+                        }
+                    } else if horizontalAmount > 40 { // Swipe right
+                        if selectedTab > 0 {
+                            selectedTab -= 1
+                        }
+                    }
+                }
+        )
         .accentColor(.orange)
         }
 

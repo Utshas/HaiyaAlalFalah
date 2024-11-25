@@ -46,13 +46,14 @@ struct CalendarView: View {
                             }
                             Text("\(rowData[row][1]) | \(rowData[row][0])")
                                 .bold()
-                                .padding(.top,12)
+                                .padding(.top,10)
                             HStack{
                                 // Loop through each column in the current row
                                 ForEach(2..<rowData[row].count, id: \.self) { col in
                                     Text(rowData[row][col])
                                         .frame(minWidth: 62, minHeight: 35)
                                         .background(Color.gray.opacity(0.2))
+                                        .clipShape(RoundedRectangle(cornerRadius: 5))
                                 }
                             }
                         }

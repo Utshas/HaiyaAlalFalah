@@ -30,6 +30,7 @@ class Context :NSObject{
         ["اِنَّ الصَّلٰوةَ كَانَتۡ عَلَى الۡمُؤۡمِنِيۡنَ كِتٰبًا مَّوۡقُوۡتًا‏","Indeed, the prayer is obligatory upon the believers at prescribed times. [Surah An-Nisa: 103]"],
         ["فَوَيْلٌ لِّلْمُصَلِّينَ ۙ الَّذِينَ هُمْ عَن صَلَاتِهِمْ سَاهُونَ ۙ الَّذِينَ هُمْ يُرَاءُونَ","So troubles to those who pray [But] who are heedless of their prayer - Those who make show [of their deeds].[sura maun: 4-6]"],
         ["يٰٓاَيُّهَا الَّذِيۡنَ اٰمَنُوا اسۡتَعِيۡنُوۡا بِالصَّبۡرِ وَالصَّلٰوةِ ؕ اِنَّ اللّٰهَ مَعَ الصّٰبِرِيۡنَ‏ ","O believers! Seek comfort in patience and prayer. Allah is truly with those who are patient. [Sura Baqarah: 153]"],
-        ["قُلْ لِّـعِبَادِىَ الَّذِيۡنَ اٰمَنُوۡا يُقِيۡمُوا الصَّلٰوةَ وَيُنۡفِقُوۡا مِمَّا رَزَقۡنٰهُمۡ سِرًّا وَّعَلَانِيَةً مِّنۡ قَبۡلِ اَنۡ يَّاۡتِىَ يَوۡمٌ لَّا بَيۡعٌ فِيۡهِ وَلَا خِلٰلٌ‏ ","Tell My believing servants to establish prayer and donate from what We have provided for them—openly and secretly—before the arrival of a Day in which there'll be no ransom or friendly connections. [Sura Ibrahim: 31]"]
+        ["قُلْ لِّـعِبَادِىَ الَّذِيۡنَ اٰمَنُوۡا يُقِيۡمُوا الصَّلٰوةَ وَيُنۡفِقُوۡا مِمَّا رَزَقۡنٰهُمۡ سِرًّا وَّعَلَانِيَةً مِّنۡ قَبۡلِ اَنۡ يَّاۡتِىَ يَوۡمٌ لَّا بَيۡعٌ فِيۡهِ وَلَا خِلٰلٌ‏ ","Tell My believing servants to establish prayer and donate from what We have provided for them—openly and secretly—before the arrival of a Day in which there'll be no ransom or friendly connections. [Sura Ibrahim: 31]"],
+        ["إِنَّنِي أَنَا اللَّهُ لَا إِلَٰهَ إِلَّا أَنَا فَاعْبُدْنِي وَأَقِمِ الصَّلَاةَ لِذِكْرِي","Indeed, I am Allah. There is no deity except Me, so worship Me and establish prayer for My remembrance. [Sura taha: 14]"]
     ]
 }
