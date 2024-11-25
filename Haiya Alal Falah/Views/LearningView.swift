@@ -45,6 +45,11 @@ struct LearningView: View {
                     Text("It's a product of BIENG HALAL. Please pray for us. Share this app with others and Give us a feedback on Appstore.")
                         .padding()
                         .foregroundStyle(.gray)
+                    Button("Write us a Review") {
+                        if let url = URL(string: "https://apps.apple.com/jp/app/haiya-alal-falah/id6502251551?l=en-US?action=write-review") {
+                            UIApplication.shared.open(url)
+                        }
+                    }
                 }
                 Spacer()
             }
