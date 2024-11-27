@@ -20,7 +20,7 @@ struct AthanView: View {
                     .ignoresSafeArea()
             } else {
                 // For light mode, use light silver color
-                Color(.sRGB, red: 0.97, green: 0.97, blue: 1)
+                Color(.sRGB, red: 0.96, green: 0.97, blue: 1)
                     .ignoresSafeArea()
             }
             ScrollView{
