@@ -118,7 +118,7 @@ struct AthanView: View {
 
             let sahriString = formatter.string(from: sahri)
             let iftarString = formatter.string(from: iftar)
-        return ["🌏 \(suhurTitle)", "\(sahriString)", "🌕 \(iftarTitle)", "\(iftarString)"]
+        return ["❄️ \(suhurTitle)", "\(sahriString)", "🌕 \(iftarTitle)", "\(iftarString)"]
     }
 }
 

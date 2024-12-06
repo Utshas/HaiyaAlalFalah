@@ -20,9 +20,17 @@ struct ContentView: View {
                 Color(.sRGB, red: 0.96, green: 0.97, blue: 1)
                     .ignoresSafeArea()
             }
+            
             VStack {
                 TabBar()
             }.padding()
+            
+            Image("bg")
+                .resizable()
+                .scaledToFill()
+                .frame(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height) // Set specific width and height
+                .opacity(0.14) // Adjust transparency
+                .position(x: UIScreen.main.bounds.width / 2, y: UIScreen.main.bounds.height / 2) // Center image
         }
         .edgesIgnoringSafeArea(.all)
     }
