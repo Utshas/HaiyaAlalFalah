@@ -29,7 +29,7 @@ struct ContentView: View {
                 .resizable()
                 .scaledToFill()
                 .frame(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height) // Set specific width and height
-                .opacity(0.14) // Adjust transparency
+                .opacity(0.12) // Adjust transparency
                 .position(x: UIScreen.main.bounds.width / 2, y: UIScreen.main.bounds.height / 2) // Center image
         }
         .edgesIgnoringSafeArea(.all)
